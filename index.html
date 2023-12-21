@@ -495,7 +495,7 @@ canvas + * {
 			document.getElementById("adRectangleTop").style.display = "none";
 			document.getElementById("adRectangleBottom").style.display = "none";
 			document.getElementById("adLeaderboardBottom").style.display = "none";
-
+			pauseCounter();
 		}
 
 		function hideAds() {
@@ -509,7 +509,11 @@ canvas + * {
 		}
 
 		function refresh() {
-
+		console.log("Refresh")
+				document.getElementById("adRectangleTop").style.display = "none";
+			document.getElementById("adRectangleBottom").style.display = "none";
+			document.getElementById("adLeaderboardBottom").style.display = "none";
+			pauseCounter();
 		}
 
 		window.onfocus = function () {
