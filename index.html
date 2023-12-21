@@ -1,1380 +1,604 @@
 <!DOCTYPE html>
 <html lang="en-us">
+
 <head>
-  <title>og1v1.LOL | Building Simulator & Shooting Game</title>
-  <meta property="og:title" content="og1v1.lol" />
-  <meta property="og:type" content="website" />
-  <meta property="og:description" content="og1v1.lol the online building simulator & third person shooting game. build fight, box fight, zone wars and more game modes to enjoy!">
-  <meta property="og:image" content="https://cdn.glitch.global/810fbc25-b82b-4689-b655-999672ba94bc/LoadingScreen.png">
-  <meta name="description"
-    content="og1v1.lol the online building simulator & third person shooting game. build fight, box fight, zone wars and more game modes to enjoy!">
-  <meta name="keywords" content="just,build,simulator,practice,free,online,battle,royale">
-  <meta charset="utf-8" />
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-  <link rel='shortcut icon' href="/favicon.ico" />
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="https://cdn.glitch.global/67be9ca0-2d2a-47be-bb5e-41357a9eed91/og1v1lol.css" type="text/css">
-  
-    <script>
-    var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-
-if (/bot|crawler|spider|crawling/i.test(userAgent)) {
-    // do nothing
-}
-
-// Windows Phone
-else if (/windows phone/i.test(userAgent)) {
-    window.location.replace("/mobile");
-}
-
-// Android
-else if (/android/i.test(userAgent)) {
-    window.location.replace("https://play.google.com/store/apps/details?id=lol.onevone");
-}
-
-// iOS
-else if ((/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream)
-|| (navigator.maxTouchPoints && navigator.maxTouchPoints > 2 && /MacIntel/.test(navigator.platform))) {
-    window.location.replace("https://apps.apple.com/app/id1508620125");
-}</script>
-	
-    <script>/* View in fullscreen */
-var elem = document.documentElement;
-function openFullscreen() {
-    if (elem.requestFullscreen) {
-        elem.requestFullscreen();
-    } else if (elem.mozRequestFullScreen) { /* Firefox */
-        elem.mozRequestFullScreen();
-    } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
-        elem.webkitRequestFullscreen();
-    } else if (elem.msRequestFullscreen) { /* IE/Edge */
-        elem.msRequestFullscreen();
-    }
-}
-
-/* Close fullscreen */
-function closeFullscreen() {
-    if (document.exitFullscreen) {
-        document.exitFullscreen();
-    } else if (document.mozCancelFullScreen) { /* Firefox */
-        document.mozCancelFullScreen();
-    } else if (document.webkitExitFullscreen) { /* Chrome, Safari and Opera */
-        document.webkitExitFullscreen();
-    } else if (document.msExitFullscreen) { /* IE/Edge */
-        document.msExitFullscreen();
-    }
-}
-
-function updateFullscreen() {
-    var isInFullScreen = (document.fullscreenElement && document.fullscreenElement !== null) ||
-        (document.webkitFullscreenElement && document.webkitFullscreenElement !== null) ||
-        (document.mozFullScreenElement && document.mozFullScreenElement !== null) ||
-        (document.msFullscreenElement && document.msFullscreenElement !== null);
-    if (!isInFullScreen)
-        openFullscreen();
-    else
-        closeFullscreen();
-}</script>
-
-    <script>
-        var gameLoaded = false;
-        window.addEventListener("beforeunload", function (e) {
-            if (adsVisible || !gameLoaded || !lockedOccured)
-                return null;
-            var confirmationMessage = 'Are you sure you want to leave? ';
-            (e || window.event).returnValue = confirmationMessage; //Gecko + IE
-            return confirmationMessage; //Gecko + Webkit, Safari, Chrome etc.
-        });
-        window.alert = function(e) {console.log(e)};
-    </script>
-
-    <link rel="stylesheet" href="https://cdn.glitch.global/4b93e01e-5245-416d-bcfe-33d9045277d5/style.css?v=1703135795435">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="description"
-          content="Discover 1v1, the online building simulator & third person shooting game. Battle royale, build fight, box fight, zone wars and more game modes to enjoy!">
-    <meta name="keywords" content="just,build,simulator,practice,free,online,battle,royale">
-
-    <!-- ZONETAG - PLACE INTO HEAD SECTION OR RUN CODE AT STARTUP -->
-
-    <script>
-        (function(zonefile) {
-            var y=window.location.href.split('#')[0].split('').reduce(function(a,b){return(a<<5)-a+b.charCodeAt(0)>>>1},0);y=(10+((y*7)%26)).toString(36)+y.toString(36);
-            var drutObj = window[y] = window[y] || {};
-            function failCpmstarAPI() { var failFn = function(o) { o && typeof(o) === "object" && o.fail && o.fail(); }; drutObj && Array.isArray(drutObj.cmd) && drutObj.cmd.forEach(failFn) && (drutObj.cmd.length = 0);  window.cpmstarAPI = window["_"+zonefile] = failFn; }
-            var rnd = Math.round(Math.random()*999999);
-            var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.onerror=failCpmstarAPI;
-            var proto = document.location.protocol;
-            var host = ( proto == "https:" || proto == "file:")?"https://server":"//cdn";
-            if(window.location.hash=="#cpmstarDev") host = "//dev.server";
-            if(window.location.hash=="#cpmstarStaging") host = "//staging.server";
-            s.src = host + ".cpmstar.com/cached/zonefiles/" + zonefile + ".js?rnd="+rnd;
-            var s2=document.getElementsByTagName('script')[0];
-            s2.parentNode.insertBefore(s, s2);
-            window.cpmstarAPI = function(o) { (drutObj.cmd = drutObj.cmd || []).push(o); }
-        }('372_49986_1v1'));
-        Object.defineProperty(window.performance.__proto__,"measures",Object.getOwnPropertyDescriptor(window.performance.__proto__,"now")),delete window.performance.__proto__.now,window.performance.__proto__.now={},Object.defineProperty(window.performance.__proto__,"now",{get:function(){return this.measures}}),Object.defineProperty(window.performance.__proto__,"now",{set:function(){Object.defineProperty(window.performance.__proto__,"now",{get:function(){return function(){return this.measures()/2}}})}});
-    </script>
-    <!-- MIDROLL/INTERSTITIAL VIDEO API -->
-    <script>//init the interstitial 
-window.adsLoaded = true;
-window.isWatchingRV = false;
-let iAd; //Inter Ads
-let rAd; //RV Ads
-
-async function initAds() {
-    
-    while (window.cpmstarAPI === undefined) {
-        await sleep(500)
-    }
-    
-    setCOPPAFlag(true);
-    
-    await initInterAds();
-}
-
-window.setCOPPAFlag = (isEnabled) => {
-    window.cpmstarAPI({kind: "coppa" ,value: isEnabled});
-}
-
-async function initInterAds() {
-    window.cpmstarAPI(async function (api) {
-		api.game.setSubpoolID(1);
-        iAd = new api.game.InterstitialView("interstitial");
-        iAd.addEventListener("ad_opened", function (e) {
-            iAdPause(); //Pause the game when ad is open
-        });
-
-        iAd.addEventListener("ad_closed", function (e) {
-            setTimeout(function () {
-                iAdUnpause(); //Unpause when ad closed.
-            }, 700);
-            iAd.load(); //Preload another ad.
-        });
-
-        iAd.addEventListener("load_failed", function(e) {
-            //console.warn("Inter Ad failed to load:" + JSON.stringify(e));
-            onAdLoadFailed()
-        });
-
-        iAd.addEventListener("loaded", function() {
-            console.warn("Inter Ad loaded");
-        });
-
-        await sleep(1000);
-        iAd.load();
-    });
-
-    function iAdPause() {
-        unityAdStartedCallback()
-    }
-    function iAdUnpause() {
-        unityAdFinishedCallback("true")
-    }
-}
-
-window.requestNewAd = () => {
-    if(iAd && !iAd.isLoaded()) {
-        console.warn("No inter ad available")
-    }
-    if (iAd && iAd.isLoaded()) {
-        iAd.show(); //Show loaded ad   
-    }
-    else {
-        if (iAd) iAd.load(); //If no ad available, load another      
-        unityAdFinishedCallback("false")
-    }
-}
-
-
-// This function calls Unity to tell the ad started
-function unityAdStartedCallback() {
-    try {
-        if (window.unityInstance) {
-            
-        }
-    }
-    catch (error) {
-        console.log(error);
-    }
-}
-
-// This function calls Unity to tell the ad finished
-function unityAdFinishedCallback(state) {
-    try {
-        if (window.unityInstance) {
-            window.unityInstance.SendMessage('PersistantObjects', 'OnWebCallback', state);
-        }
-    }
-    catch (error) {
-        console.log(error);
-    }
-}
-
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-async function onAdLoadFailed() {
-    await sleep(10000);
-    iAd.load();
-}</script>
-
-    <script>
-        initAds();
-    </script>
-    
-</head>
-<body>
-
-  <div class="startmsg" id="startcountdown">
-    <h1>Thanks for playing og1v1.lol</h1>
-    <p id="countdown">Game will start in 5</p>
-    <a href="https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/a6fade6d-b5be-408b-b73e-a4d21ed56d19/OG+1v1.lol+CLIENT.exe">Windows Client (MAX FPS)</a>
-    <br>
-    <br>
-    <a href="https://discord.gg/HXcqh82zBz" target="_blank" >Discord Server</a>
-    <br>
-    <p>og1v1.lol is unofficial and is not affiliated with 1v1.lol</p>
-  </div>
-  <script src="https://cdn.glitch.global/67be9ca0-2d2a-47be-bb5e-41357a9eed91/fixstuff.js"></script>
-    
-
-<div class="ads">
-    <div class="ad-smallscreen">
-        <div class="ad ad-rectangle-bottom">
-        </div>
-    </div>
-    <div class="ad ad-rectangle-upper" id="adRectangleUpper">
-        <!-- 300X250B PLACEMENT TAG - PLACE INTO BODY (ZONE TAG REQUIRED) -->
-        <script>
-            (function(w,pid){
-                var r=function(c,m){c=c.split('').reduce(function(a,b){return(a<<5)-a+b.charCodeAt(0)>>>m},0);return(10+((c*7)%26)).toString(36)+c.toString(36);},y=r(w.location.href.split('#')[0],1),c=r(w.location.href.split('#')[0]+pid,0);
-                w.document.write('<div style="width:300px;height:250px" class="'+c+'"></div>');
-            })(window,83023);
-        </script>
-    </div>
-    <div class="ad-largescreen">
-        <div class="ad ad-leaderboard-bottom">
-            <!-- 300X600B PLACEMENT TAG - PLACE INTO BODY (ZONE TAG REQUIRED) -->
-            <script>
-                (function(w,pid){
-                    var r=function(c,m){c=c.split('').reduce(function(a,b){return(a<<5)-a+b.charCodeAt(0)>>>m},0);return(10+((c*7)%26)).toString(36)+c.toString(36);},y=r(w.location.href.split('#')[0],1),c=r(w.location.href.split('#')[0]+pid,0);
-                    w.document.write('<div style="width:300px;height:600px" class="'+c+'"></div>');
-                })(window,85420);
-            </script>
-        </div>
-    </div>
-</div>
-
-<!-- <div id="interAdsContainer" style="display: none;"></div> -->
-<div id="gameContainer">
-    <canvas id="canvas"></canvas>
-    <div id="loader">
-        <img class="logo" src="https://cdn.glitch.global/2ea06c99-a9eb-4c15-a76a-87c2a5c2a1c1/logo.png">
-        <div class="spinner"></div>
-        <div class="progress">
-            <div class="full"></div>
-        </div>
-        <div id="percentDiv" style="color: white;"></div>
-    </div>
-</div>
-
-<script>
-    var loaderUrl = "https://cdn.glitch.global/4b93e01e-5245-416d-bcfe-33d9045277d5/WebGL.loader.js?v=1703134740996";
-
-    var config = {
-        dataUrl: "https://cdn.glitch.me/4b93e01e-5245-416d-bcfe-33d9045277d5/1v1data.unityweb?v=1703134510351",
-        frameworkUrl: "https://cdn.glitch.global/4b93e01e-5245-416d-bcfe-33d9045277d5/1v1frame.unityweb?v=1703134482914",
-        codeUrl: "https://cdn.glitch.global/4b93e01e-5245-416d-bcfe-33d9045277d5/1v1code.unityweb?v=1703134481951",
-        streamingAssetsUrl: "StreamingAssets",
-        companyName: "JustPlay.LOL",
-        productName: "1v1.LOL Dev",
-        productVersion: "4.0"
-    };
-
-    var container = document.querySelector("#gameContainer");
-    var canvas = document.querySelector("#canvas");
-    var loadingBar = document.querySelector("#loader");
-    var spinner = loadingBar.querySelector(".spinner")
-    var progressBarFull = loadingBar.querySelector(".progress");
-    var fullscreenButton = progressBarFull.querySelector(".full");
-    var mobileWarning = document.querySelector("#unity-mobile-warning");
-
-    // By default Unity keeps WebGL canvas render target size matched with
-    // the DOM size of the canvas element (scaled by window.devicePixelRatio)
-    // Set this to false if you want to decouple this synchronization from
-    // happening inside the engine, and you would instead like to size up
-    // the canvas DOM size and WebGL render target sizes yourself.
-    // config.matchWebGLToCanvasSize = false;
-
-    if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        container.className = "unity-mobile";
-        // Avoid draining fillrate performance on mobile devices,
-        // and default/override low DPI mode on mobile browsers.
-        config.devicePixelRatio = 1;
-        mobileWarning.style.display = "block";
-        setTimeout(() => {
-            mobileWarning.style.display = "none";
-        }, 5000);
-    }
-
-    let gameInstance;
-    var script = document.createElement("script");
-    script.src = loaderUrl;
-    script.onload = () => {
-        createUnityInstance(canvas, config, (progress) => {
-            spinner.style.display = "none"
-            document.getElementById("percentDiv").innerHTML = (100 * progress + 10).toFixed(0) + "%";
-            progressBarFull.style.width = 100 * progress + "%";
-        }).then((unityInstance) => {
-            loadingBar.style.display = "none";
-            window.unityInstance = unityInstance;
-            gameInstance = unityInstance;
-            window.gameInstance = unityInstance;
-        }).catch((message) => {
-            alert(message);
-        });
-    };
-    document.body.appendChild(script);
-
-    document.onkeydown = function (e) {
-        if (e.altKey || e.ctrlKey || e.key == "F1" || e.key == "F2" || e.key == "F3" || e.key == "F4") {
-            e.preventDefault();
-        }
-    }
-
-    document.onmouseup = function (e) {
-        e.preventDefault();
-    }
-
-    document.addEventListener('pointerlockchange', lockChangeAlert, false);
-    document.addEventListener('mozpointerlockchange', lockChangeAlert, false);
-
-    function lockChangeAlert() {
-        if (!lockedOccured && document.pointerLockElement)
-            lockedOccured = true;
-        if (!document.pointerLockElement && lockedOccured){
-            lockedOccured = false;
-            window.unityInstance.SendMessage("Pause Menu", "OnCursorUnlocked");
-        }
-    }
-
-    window.addEventListener('resize', injectAdByWindowSize);
-
-    function injectAdByWindowSize() {
-        // Inject small ad if screen is small, or large ad if screen is large
-        if (window.innerHeight < 900) {
-            if (document.getElementById("adRectangleBottom") == null) {
-                var el = document.getElementsByClassName("ad-rectangle-bottom")[0];
-                el.id = "adRectangleBottom";
-                cpmstarAPI({kind:'go',module:'POOL 83025', config: { conditions: { target: { el: el, kind: 'replace' }}}});
-            }
-        }
-        else {
-            if (document.getElementById("adLeaderboardBottom") == null) {
-                var el = document.getElementsByClassName("ad-leaderboard-bottom")[0];
-                el.id = "adLeaderboardBottom";
-                cpmstarAPI({kind:'go',module:'POOL 85420', config: { conditions: { target: { el: el, kind: 'replace' }}}});
-            }
-        }
-    }
-
-    injectAdByWindowSize();
-
-    var refreshNextTime = true;
-
-    function showAds() {
-
-        document.getElementsByClassName("ad-rectangle-bottom")[0].style.display = "block";
-        document.getElementsByClassName("ad-leaderboard-bottom")[0].style.display = "block";
-        document.getElementById("adRectangleUpper").style.display = "block";
-
-        if (typeof counter === 'undefined') {
-            startCounter();
-            resumeCounter();
-        }
-        else {
-            resumeCounter();
-            refresh();
-        }
-    }
-
-    function hideAds() {
-
-        document.getElementsByClassName("ad-rectangle-bottom")[0].style.display = "none";
-        document.getElementsByClassName("ad-leaderboard-bottom")[0].style.display = "none";
-        document.getElementById("adRectangleUpper").style.display = "none";
-
-        pauseCounter();
-    }
-
-    function refresh() {
-
-        //console.log("time since ads refresh = " + timeSinceRefresh + " seconds");
-        //console.log("time ads visible = " + timeAdsVisible + " seconds");
-
-        if (timeSinceRefresh <= 30 || timeAdsVisible <= 2) {
-            //console.log("don't refresh");
-            return;
-        }
-
-        if (document.getElementById("adRectangleBottom") != null &&
-            window.getComputedStyle(document.getElementsByClassName("ad-smallscreen")[0]).display != "none") {
-            cpmstarAPI({ kind: "adcmd", module: "POOL 83023", command: "refresh" });
-        }
-
-        if (document.getElementById("adLeaderboardBottom") != null &&
-            window.getComputedStyle(document.getElementsByClassName("ad-largescreen")[0]).display != "none") {
-            cpmstarAPI({ kind: "adcmd", module: "POOL 85420", command: "refresh" });
-        }
-
-        cpmstarAPI({ kind: "adcmd", module: "POOL 83025", command: "refresh" });
-
-        timeSinceRefresh = 0;
-        timeAdsVisible = 0;
-        //console.log("refresh ads");
-    }
-
-    window.onfocus = function () {
-        //console.log("onfocus");
-        resumeCounter();
-        refresh();
-    };
-
-    window.onblur = function () {
-        //console.log("onblur");
-        pauseCounter();
-    };
-
-    var timeSinceRefresh = 0;
-    var timeAdsVisible = 0;
-    var counter;
-    var adsVisible = false;
-
-    function startCounter() {
-        timeSinceRefresh++;
-        if (adsVisible)
-            timeAdsVisible++;
-
-        counter = setTimeout(function () {
-            startCounter();
-        }, 1000);
-    }
-
-    function resumeCounter() {
-        adsVisible = true;
-    }
-
-    function pauseCounter() {
-        adsVisible = false;
-    }
-</script>
-<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
-
-<!-- Add Firebase products that you want to use -->
-<script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-analytics.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-firestore.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-remote-config.js"></script>
-
-<script>function initializeFireBase(){
-	// Your web app's Firebase configuration
-	var firebaseConfig = {
-	apiKey: "AIzaSyCWc2-Hb13-lxVrmAMcPAdOyBh2XqU9X3M",
-	authDomain: "fail1v1.firebaseapp.com",
-	databaseURL: "https://fail1v1.firebaseio.com",
-	projectId: "fail1v1",
-	storageBucket: "fail1v1.appspot.com",
-	messagingSenderId: "569153774324",
-	appId: "1:569153774324:web:96eee77e61895aef81f4a1"
-	};
-	// Initialize Firebase
-	firebase.initializeApp(firebaseConfig);
-}
-
-function initializeFireBaseDev(){
-	// Your web app's Firebase configuration
-	var firebaseConfig = {
-	apiKey: "AIzaSyANZ0SDhqoc62msSooQFs3SEb4XbC7gvk4",
-	authDomain: "dev.1v1.lol",
-	databaseURL: "https://dev1v1.firebaseio.com",
-	projectId: "dev1v1",
-	storageBucket: "dev1v1.appspot.com",
-	messagingSenderId: "90097883404",
-	appId: "1:90097883404:android:0931a7bbf3e74f2b9a5129"
-	};
-	// Initialize Firebase
-	firebase.initializeApp(firebaseConfig);
-}</script>
-<script>var tempErrorCreds;
-var tempProviderName;
-
-function retrieveIdToken(successCallback, errorCallback) {
-	if(firebase.auth().currentUser === null){
-		if(errorCallback !== null) 
-			errorCallback("User is null");
-		return;
-	}
-
-	firebase.auth().currentUser.getIdToken().then(function (idToken) {
-		var resultObj = {
-			token: idToken,
-			displayName: firebase.auth().currentUser.displayName
-		};
-
-		if (successCallback !== undefined) {
-
-			successCallback(resultObj);
+	<meta charset="utf-8">
+	<title>1v1.LOL | Building Simulator, Battle Royale &amp; Shooting Game</title>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+
+	<script>
+		window.dataLayer = window.dataLayer || [];
+
+		function gtag() {
+			dataLayer.push(arguments);
 		}
-	})
-		.catch(function (error) {
-			console.log(error);
-			if (errorCallback !== undefined)
-				errorCallback(error.message);
+		gtag('js', new Date());
+
+		gtag('config', 'UA-118283086-6');
+	</script>
+	<script>
+		var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+		if (/bot|crawler|spider|crawling/i.test(userAgent)) {
+			// do nothing
+		}
+
+		// Windows Phone
+		else if (/windows phone/i.test(userAgent)) {
+			window.location.replace("/mobile");
+		}
+
+		// Android
+		else if (/android/i.test(userAgent)) {
+			window.location.replace("https://web.archive.org/web/20200820135317/https://play.google.com/store/apps/details?id=lol.onevone");
+		}
+
+		// iOS
+		else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+			window.location.replace("https://web.archive.org/web/20200820135317/https://apps.apple.com/app/id1508620125");
+		}
+
+		var gameLoaded = false;
+		window.addEventListener("beforeunload", function (e) {
+			if (adsVisible || !gameLoaded || !lockedOccured)
+				return null;
+			var confirmationMessage = 'Are you sure you want to leave? ';
+			(e || window.event).returnValue = confirmationMessage; //Gecko + IE
+			return confirmationMessage; //Gecko + Webkit, Safari, Chrome etc.
 		});
+	</script>
+	<link rel="shortcut icon" type="image/png" href="/web/20200820135317im_/https://1v1.lol/favicon.png?v2"/>
+	<link rel="canonical" href="https://web.archive.org/web/20200820135317/https://1v1.lol/"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<meta name="description" content="Discover 1v1, the online building simulator &amp; third person shooting game. Battle royale, build fight, box fight, zone wars and more game modes to enjoy!">
+	<meta name="keywords" content="just,build,simulator,practice,free,online,battle,royale">
+
+	<style>
+html {
+	box-sizing: border-box;
 }
 
-function anonymousLogin(successCallback, errorCallback) {
-	var resultObj = {
-		token: "",
-		displayName: "guest"
-	};
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
 
-	if (successCallback !== undefined) {
+body {
+	margin: 0;
+	background: #000!important;
+}
 
-		successCallback(resultObj);
+#gameContainer {
+	width: 100vw;
+	height: 100vh;
+	background: #000!important;
+}
+
+canvas {
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+/* try to handle mobile dialog */
+
+canvas + * {
+	z-index: 2;
+}
+
+.logo {
+	display: block;
+	max-width: 15vw;
+	max-height: 15vh;
+}
+
+.progress {
+	margin: 1.5em;
+	border: 1px solid white;
+	width: 30vw;
+	display: none;
+}
+
+.progress .full {
+	margin: 2px;
+	background: white;
+	height: 1em;
+	transform-origin: top left;
+}
+
+#loader {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.spinner,
+.spinner:after {
+	border-radius: 50%;
+	width: 5em;
+	height: 5em;
+}
+
+.spinner {
+	margin: 10px;
+	font-size: 10px;
+	position: relative;
+	text-indent: -9999em;
+	border-top: 1.1em solid rgba(255, 255, 255, 0.2);
+	border-right: 1.1em solid rgba(255, 255, 255, 0.2);
+	border-bottom: 1.1em solid rgba(255, 255, 255, 0.2);
+	border-left: 1.1em solid #ffffff;
+	transform: translateZ(0);
+	animation: spinner-spin 1.1s infinite linear;
+}
+
+@keyframes spinner-spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
 	}
 }
 
-function firebaseLogin(providerName, successCallback, errorCallback) {
-	if (providerName === "anonymous") {
-		anonymousLogin(successCallback, errorCallback);
-		return;
-	}
-
-	var user = firebase.auth().currentUser;
-
-	if(user != null && !user.isAnonymous){
-		retrieveIdToken(successCallback, errorCallback);
-		return;
-	}
-
-	var provider = getProvider(providerName);
-	firebase.auth().useDeviceLanguage();
-
-	//var task = firebase.auth().currentUser.isAnonymous ? firebase.auth().signInWithPopup(provider) : firebase.auth().linkWithPopup(provider);
-
-	firebase.auth().signInWithPopup(provider).then(function (result) {
-			console.log("Successful sign in");
-			retrieveIdToken(successCallback, errorCallback);
-		})
-		.catch(function (error) {
-			// Handle Errors here.
-			var errorCode = error.code;
-			var errorMessage = error.message;
-			// The email of the user's account used.
-			var email = error.email;
-			// The firebase.auth.AuthCredential type that was used.
-			tempErrorCreds = error.credential;
-			console.log(error);
-
-			if (errorCallback !== undefined)
-				errorCallback(error.message);
-
-			if (errorCode === 'auth/account-exists-with-different-credential') {
-				// User's email already exists.
-				// Get sign-in methods for this email.
-				firebase.auth().fetchSignInMethodsForEmail(email).then(function (methods) {
-					// the first method in the list will be the "recommended" method to use.
-					if (methods.length == 0)
-						return;
-					// Sign in to provider.
-					tempProviderName = methods[0].trim();
-					setModalContent("generalModalContent",
-						"<div id =\"continueWindow\"><span class=\"close\" id=\"closeButton\" onclick=\"hideModal('generalModal')\">&times;</span><p>Please press the button to login: </p><button onclick=\"continueLogin()\">Continue Login</button></div>");
-					showModal("generalModal");
-				});
-			}
-		});
+.ad {
+	position: absolute;
+	background: rgba(0, 0, 0, 0.4);
+	overflow: hidden;
+	z-index: 40;
+	display: none;
 }
 
-function firebaseLogout() {
-	firebase.auth().signOut().catch(function (error) {
-		console.log(error);
-	});
+.modal{
+	background:rgba(0,0,0,.4);
+	display:none;
+	height:100%;
+	width: 100%;
+	position:fixed;
+	z-index:10000;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
 }
 
-function getCurrentUserDisplayName() {
-	var user = firebase.auth().currentUser;
-	var displayName = "";
-	if (user) {
-		displayName = user.displayName;
-	}
-	return displayName;
+.modalContent{
+	margin: auto;
+	width: 100%;
 }
 
-function getProvider(providerName) {
-	if (providerName && providerName.indexOf("facebook") != -1)
-		return new firebase.auth.FacebookAuthProvider()
-	else
-		return new firebase.auth.GoogleAuthProvider()
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-function setModalContent(modalContentId, contentString) {
-	content = document.getElementById(modalContentId);
-	if (content) {
-		content.innerHTML = contentString;
-	}
-
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
 }
 
-function continueLogin() {
-	hideModal("generalModal");
-	var provider = getProvider(tempProviderName);
-	firebase.auth().signInWithPopup(provider).then(
-		function (result) {
-			if (!tempErrorCreds) {
-				return;
-			}
-			// As we have access to the pending credential, we can directly call the link method.
-			result.user.linkAndRetrieveDataWithCredential(tempErrorCreds).then(function (usercred) {
-				//goToApp();
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#continueWindow{
+	background-color: #fefefe;
+	margin: 15% auto;
+	padding: 20px;
+	border: 1px solid #888;
+	width: 30%;
+}
+
+#adWindow{
+	background: #4382f5;
+	border: 10px solid #4382f5;
+	width: 660px;
+	border-top: 0;
+	height: 540px;
+}
+	</style>
+
+	<style>
+		.ad-rectangle-top {
+			top: 50%;
+			right: 0;
+			width: 310px;
+			height: 270px;
+			margin: -261px 0;
+			border-style: solid;
+			border-width: 10px 0px 10px 10px;
+			border-color: rgba(0, 0, 0, 0.01);
+			display: block;
+			transform-origin: 100% 100%;
+		}
+
+		.ad-rectangle-bottom {
+			top: 50%;
+			right: 0;
+			width: 310px;
+			height: 260px;
+			margin: 9px 0;
+			border-style: solid;
+			border-width: 0px 0px 0px 10px;
+			border-color: rgba(0, 0, 0, 0.01);
+			display: block;
+			transform-origin: 100% 0%;
+		}
+
+		.ad-leaderboard-bottom {
+			bottom: 0;
+			left: 50%;
+			width: 748px;
+			height: 100px;
+			margin: 0 0 0 -403px;
+			border-style: solid;
+			border-width: 10px 10px 0px 10px;
+			border-color: rgba(0, 0, 0, 0.01);
+			display: block;
+			transform-origin: bottom;
+		}
+
+		#adWindow {
+			border: 10px solid #4382f5 !important;
+			height: 500px !important;
+		}
+
+		a[onclick*="showConsentToolSettings"] {
+			right: 0px;
+			left: auto !important;
+		}
+	</style>
+
+	<script>
+		//init the interstitial 
+
+		var iAd;
+		cpmstarAPI(function (api) {
+			console.log("Setting iAD")
+			iAd = new api.game.InterstitialView("interstitial");
+			iAd.load();
+			iAd.addEventListener("ad_opened", function (e) {
+				iAdPause(); //Pause the game when ad is open 
+			});
+
+			iAd.addEventListener("ad_closed", function (e) {
+				setTimeout(function () {
+					iAdUnpause(); //Unpause when ad closed.  
+				}, 700);
+				iAd.load(); //Preload another ad. 
 			});
 		});
 
-}
+		function iAdPause() {
 
-function showModal(modalId) {
-	modal = document.getElementById(modalId);
-	if (modal)
-		modal.style.display = "block";
-}
+		}
+		function iAdUnpause() {
+			unityAdFinishedCallback()
+		}
 
-function hideModal(modalId) {
-	modal = document.getElementById(modalId);
-	if (modal)
-		modal.style.display = "none";
-}</script>
-<script>let conf;
 
-function initRemoteConfig() {
-    const remoteConfig = firebase.remoteConfig();
-    remoteConfig.settings.minimumFetchIntervalMillis = 2000;
-    setDefaultValues(remoteConfig);
+		function requestNewAd() {
+			console.log("requested AD")
+			console.log(iAd)
+			if (iAd && iAd.isLoaded()) {
+				iAd.show(); //Show loaded ad   
+			}
+			else {
+				if (iAd) iAd.load(); //If no ad available, load another      
+				unityAdFinishedCallback()
+			}
+		}
 
-    remoteConfig.fetchAndActivate().then(()=>{
-        conf = {};
-        // Convert all of the remote config parameters to a dict:
-        for (const [key,value] of Object.entries(remoteConfig.getAll())) {
-            conf[key] = value.asString();
-        }
-    }
-    ).catch((err)=>{
-        console.warn("config error: " + err);
-    }
-    );
-}
+		// This function calls Unity to tell the ad finished
+		function unityAdFinishedCallback() {
+			try {
+				if (gameInstance)
+					gameInstance.SendMessage('AdsManager', 'OnWebCallback');
+			}
+			catch (error) {
+				console.log(error);
+			}
+		}
+	</script>
+</head>
 
-async function sendConfig() {
-    while (conf === undefined || window.unityInstance === undefined) {
-        await sleep(500)
-    }
+<body>
+	<div id="generalModal" class="modal">
+		<div id="generalModalContent" class="modalContent"></div>
+	</div>
 
-    window.unityInstance.SendMessage('PersistantObjects', 'ActivateRemoteConfig', JSON.stringify(conf));
-}
-;
-function setDefaultValues(remoteConfig) {
-    remoteConfig.defaultConfig = {
-        "SettingsV5": JSON.stringify({
-            "id": "default",
-            "skins_data": {
-                "lol.1v1.playerskins.pack.1": {
-                    "Name": "Agent Olivia",
-                    "PriceText": "100",
-                    "Currency": "LC",
-                    "Rarity": "Rare",
-                    "Prices": {
-                        "LC": 100,
-                        "RM": 0.99,
-                        "RV": 4
-                    }
-                },
-                "lol.1v1.playerskins.pack.2": {
-                    "Name": "S.W.A.T",
-                    "PriceText": "400",
-                    "Currency": "LC",
-                    "Rarity": "Epic",
-                    "Prices": {
-                        "LC": 400,
-                        "RM": 0.99,
-                        "RV": 4
-                    }
-                },
-                "lol.1v1.playerskins.pack.3": {
-                    "Name": "X-Bot",
-                    "PriceText": "900",
-                    "Currency": "LC",
-                    "Rarity": "Legendary",
-                    "Prices": {
-                        "LC": 900,
-                        "RM": 0.99,
-                        "RV": 4
-                    }
-                },
-                "lol.1v1.playerskins.pack.4": {
-                    "Name": "Skater Boy",
-                    "PriceText": "100",
-                    "Currency": "LC",
-                    "Rarity": "Epic",
-                    "Prices": {
-                        "LC": 100,
-                        "RM": 0.99,
-                        "RV": 4
-                    }
-                },
-                "lol.1v1.playerskins.pack.5": {
-                    "Name": "Lola",
-                    "PriceText": "400",
-                    "Currency": "LC",
-                    "Rarity": "Epic",
-                    "Prices": {
-                        "LC": 400,
-                        "RM": 0.99,
-                        "RV": 4
-                    }
-                },
-                "lol.1v1.playerskins.pack.6": {
-                    "Name": "Ninja",
-                    "PriceText": "900",
-                    "Currency": "LC",
-                    "Rarity": "Legendary",
-                    "Prices": {
-                        "LC": 900,
-                        "RM": 0.99,
-                        "RV": 4
-                    }
-                },
-                "lol.1v1.playerskins.pack.7": {
-                    "Name": "Caty",
-                    "PriceText": "100",
-                    "Currency": "LC",
-                    "Rarity": "Rare",
-                    "Prices": {
-                        "LC": 100,
-                        "RM": 0.99,
-                        "RV": 4
-                    }
-                },
-                "lol.1v1.playerskins.pack.8": {
-                    "Name": "Beach Girl",
-                    "PriceText": "400",
-                    "Currency": "LC",
-                    "Rarity": "Epic",
-                    "Prices": {
-                        "LC": 400,
-                        "RM": 0.99,
-                        "RV": 4
-                    }
-                },
-                "lol.1v1.playerskins.pack.9": {
-                    "Name": "LOL Pump",
-                    "PriceText": "900",
-                    "Currency": "LC",
-                    "Rarity": "Legendary",
-                    "Prices": {
-                        "LC": 900,
-                        "RM": 0.99,
-                        "RV": 4
-                    }
-                },
-                "lol.1v1.playerskins.pack.10": {
-                    "Name": "Rey",
-                    "PriceText": "100",
-                    "Currency": "LC",
-                    "Rarity": "Rare",
-                    "Prices": {
-                        "LC": 100,
-                        "RM": 0.99,
-                        "RV": 4
-                    }
-                },
-                "lol.1v1.playerskins.pack.11": {
-                    "Name": "Justin",
-                    "PriceText": "400",
-                    "Currency": "LC",
-                    "Rarity": "Epic",
-                    "Prices": {
-                        "LC": 400,
-                        "RM": 0.99,
-                        "RV": 4
-                    }
-                },
-                "lol.1v1.playerskins.pack.12": {
-                    "Name": "Hot Dog",
-                    "PriceText": "900",
-                    "Currency": "LC",
-                    "Rarity": "Legendary",
-                    "Prices": {
-                        "LC": 900,
-                        "RM": 0.99,
-                        "RV": 4
-                    }
-                },
-                "lol.1v1.playerskins.pack.17": {
-                    "Name": "John",
-                    "PriceText": "100",
-                    "Currency": "LC",
-                    "Rarity": "Rare",
-                    "Prices": {
-                        "LC": 100,
-                        "RM": 0.99,
-                        "RV": 4
-                    }
-                },
-                "lol.1v1.playerskins.pack.18": {
-                    "Name": "Hilda",
-                    "PriceText": "100",
-                    "Currency": "LC",
-                    "Rarity": "Rare",
-                    "Prices": {
-                        "LC": 100,
-                        "RM": 0.99,
-                        "RV": 4
-                    }
-                },
-                "lol.1v1.playerskins.pack.19": {
-                    "Name": "Jester",
-                    "PriceText": "900",
-                    "Currency": "LC",
-                    "Rarity": "Legendary",
-                    "Prices": {
-                        "LC": 900,
-                        "RM": 0.99,
-                        "RV": 4
-                    }
-                },
-                "lol.1v1.playerskins.pack.20": {
-                    "Name": "Executioner",
-                    "PriceText": "400",
-                    "Currency": "LC",
-                    "Rarity": "Epic",
-                    "Prices": {
-                        "LC": 400,
-                        "RM": 0.99,
-                        "RV": 4
-                    }
-                },
-                "lol.1v1.playerskins.pack.21": {
-                    "Name": "Astrid",
-                    "PriceText": "400",
-                    "Currency": "LC",
-                    "Rarity": "Epic",
-                    "Prices": {
-                        "LC": 400,
-                        "RM": 0.99,
-                        "RV": 4
-                    }
-                },
-                "lol.1v1.playerskins.pack.22": {
-                    "Name": "Olaf",
-                    "PriceText": "400",
-                    "Currency": "LC",
-                    "Rarity": "Epic",
-                    "Prices": {
-                        "LC": 400,
-                        "RM": 0.99,
-                        "RV": 4
-                    }
-                },
-                "lol.1v1.playerskins.pack.23": {
-                    "Name": "Dre",
-                    "PriceText": "400",
-                    "Currency": "LC",
-                    "Rarity": "Epic",
-                    "Prices": {
-                        "LC": 400,
-                        "RM": 0.99,
-                        "RV": 4
-                    }
-                },
-                "lol.1v1.playerskins.pack.24": {
-                    "Name": "Sonya",
-                    "PriceText": "100",
-                    "Currency": "LC",
-                    "Rarity": "Rare",
-                    "Prices": {
-                        "LC": 100,
-                        "RM": 0.99,
-                        "RV": 4
-                    }
-                },
-                "lol.1v1.playerskins.pack.25": {
-                    "Name": "Jessica",
-                    "PriceText": "400",
-                    "Currency": "LC",
-                    "Rarity": "Epic",
-                    "Prices": {
-                        "LC": 400,
-                        "RM": 0.99,
-                        "RV": 4
-                    }
-                },
-                "lol.1v1.playerskins.pack.26": {
-                    "Name": "Scarecrow",
-                    "PriceText": "900",
-                    "Currency": "LC",
-                    "Rarity": "Legendary",
-                    "Prices": {
-                        "LC": 900,
-                        "RM": 0.99,
-                        "RV": 4
-                    }
-                },
-                "lol.1v1.playerskins.pack.27": {
-                    "Name": "Brandy",
-                    "PriceText": "400",
-                    "Currency": "LC",
-                    "Rarity": "Epic",
-                    "Prices": {
-                        "LC": 400,
-                        "RM": 0.99,
-                        "RV": 4
-                    }
-                },
-                "lol.1v1.playerskins.pack.tier.RV0": {
-                    "Name": "Paper Bag Mask",
-                    "PriceText": "50",
-                    "Currency": "RV",
-                    "Rarity": "Uncommon",
-                    "Prices": {
-                        "LC": 50,
-                        "RM": 0.99,
-                        "RV": 4
-                    }
-                },
-                "lol.1v1.playerskins.pack.tier.RV1": {
-                    "Name": "Hockey Mask",
-                    "PriceText": "50",
-                    "Currency": "RV",
-                    "Rarity": "Uncommon",
-                    "Prices": {
-                        "LC": 50,
-                        "RM": 0.99,
-                        "RV": 4
-                    }
-                },
-                "lol.1v1.playerskins.pack.tier.RV2": {
-                    "Name": "Mysterio",
-                    "PriceText": "50",
-                    "Currency": "RV",
-                    "Rarity": "Uncommon",
-                    "Prices": {
-                        "LC": 50,
-                        "RM": 0.99,
-                        "RV": 4
-                    }
-                },
-                "lol.1v1.playerskins.pack.tier.RV3": {
-                    "Name": "Cube Face",
-                    "PriceText": "50",
-                    "Currency": "RV",
-                    "Rarity": "Uncommon",
-                    "Prices": {
-                        "LC": 50,
-                        "RM": 0.99,
-                        "RV": 4
-                    }
-                },
-                "lol.1v1.playerskins.pack.tier.RV4": {
-                    "Name": "Uncle Sam",
-                    "PriceText": "50",
-                    "Currency": "RV",
-                    "Rarity": "Uncommon",
-                    "Prices": {
-                        "LC": 50,
-                        "RM": 0.99,
-                        "RV": 4
-                    }
-                },
-                "lol.1v1.playerskins.pack.tier.RV5": {
-                    "Name": "Alien",
-                    "PriceText": "50",
-                    "Currency": "RV",
-                    "Rarity": "Uncommon",
-                    "Prices": {
-                        "LC": 50,
-                        "RM": 0.99,
-                        "RV": 4
-                    }
-                },
-                "lol.1v1.playerskins.pack.tier.RV6": {
-                    "Name": "Stranger",
-                    "PriceText": "50",
-                    "Currency": "RV",
-                    "Rarity": "Uncommon",
-                    "Prices": {
-                        "LC": 50,
-                        "RM": 0.99,
-                        "RV": 4
-                    }
-                },
-                "lol.1v1.playerskins.pack.tier.RV7": {
-                    "Name": "Football",
-                    "PriceText": "50",
-                    "Currency": "RV",
-                    "Rarity": "Uncommon",
-                    "Prices": {
-                        "LC": 50,
-                        "RM": 0.99,
-                        "RV": 4
-                    }
-                },
-                "lol.1v1.playerskins.pack.tier.RV8": {
-                    "Name": "Party Hat",
-                    "PriceText": "50",
-                    "Currency": "RV",
-                    "Rarity": "Uncommon",
-                    "Prices": {
-                        "LC": 50,
-                        "RM": 0.99,
-                        "RV": 4
-                    }
-                },
-                "lol.1v1.playerskins.pack.tier.RV9": {
-                    "Name": "Pot",
-                    "PriceText": "50",
-                    "Currency": "RV",
-                    "Rarity": "Uncommon",
-                    "Prices": {
-                        "LC": 50,
-                        "RM": 0.99,
-                        "RV": 4
-                    }
-                },
-                "lol.1v1.playerskins.pack.tier.RV10": {
-                    "Name": "Skull Mask",
-                    "PriceText": "50",
-                    "Currency": "RV",
-                    "Rarity": "Uncommon",
-                    "Prices": {
-                        "LC": 50,
-                        "RM": 0.99,
-                        "RV": 4
-                    }
-                },
-                "lol.1v1.playerskins.pack.tier.RV11": {
-                    "Name": "Karate",
-                    "PriceText": "50",
-                    "Currency": "RV",
-                    "Rarity": "Uncommon",
-                    "Prices": {
-                        "LC": 50,
-                        "RM": 0.99,
-                        "RV": 4
-                    }
-                },
-                "lol.1v1.playerskins.pack.tier.RV12": {
-                    "Name": "Ice Cream",
-                    "PriceText": "50",
-                    "Currency": "RV",
-                    "Rarity": "Uncommon",
-                    "Prices": {
-                        "LC": 50,
-                        "RM": 0.99,
-                        "RV": 4
-                    }
-                },
-                "lol.1v1.playerskins.pack.tier.RV13": {
-                    "Name": "#1 Hat",
-                    "PriceText": "50",
-                    "Currency": "RV",
-                    "Rarity": "Uncommon",
-                    "Prices": {
-                        "LC": 50,
-                        "RM": 0.99,
-                        "RV": 4
-                    }
-                },
-                "lol.1v1.playerskins.pack.tier.RV14": {
-                    "Name": "Fish Bait",
-                    "PriceText": "50",
-                    "Currency": "RV",
-                    "Rarity": "Uncommon",
-                    "Prices": {
-                        "LC": 50,
-                        "RM": 0.99,
-                        "RV": 4
-                    }
-                },
-                "lol.1v1.playerskins.pack.tier.RV15": {
-                    "Name": "Spartan",
-                    "PriceText": "50",
-                    "Currency": "RV",
-                    "Rarity": "Uncommon",
-                    "Prices": {
-                        "LC": 50,
-                        "RM": 0.99,
-                        "RV": 4
-                    }
-                },
-                "lol.1v1.playerskins.pack.tier.RV16": {
-                    "Name": "Safety First!",
-                    "PriceText": "50",
-                    "Currency": "RV",
-                    "Rarity": "Uncommon",
-                    "Prices": {
-                        "LC": 50,
-                        "RM": 0.99,
-                        "RV": 4
-                    }
-                },
-                "lol.1v1.playerskins.pack.tier.RV17": {
-                    "Name": "Squid Kid",
-                    "PriceText": "50",
-                    "Currency": "RV",
-                    "Rarity": "Uncommon",
-                    "Prices": {
-                        "LC": 50,
-                        "RM": 0.99,
-                        "RV": 4
-                    }
-                },
-                "lol.1v1.playerskins.pack.tier.RV18": {
-                    "Name": "Cupcake",
-                    "PriceText": "50",
-                    "Currency": "RV",
-                    "Rarity": "Uncommon",
-                    "Prices": {
-                        "LC": 50,
-                        "RM": 0.99,
-                        "RV": 4
-                    }
-                },
-                "lol.1v1.playerskins.pack.tier.RV19": {
-                    "Name": "Gas Mask",
-                    "PriceText": "50",
-                    "Currency": "RV",
-                    "Rarity": "Uncommon",
-                    "Prices": {
-                        "LC": 50,
-                        "RM": 0.99,
-                        "RV": 4
-                    }
-                },
-                "lol.1v1.playerskins.pack.tier.RV20": {
-                    "Name": "Disco Star",
-                    "PriceText": "50",
-                    "Currency": "RV",
-                    "Rarity": "Uncommon",
-                    "Prices": {
-                        "LC": 50,
-                        "RM": 0.99,
-                        "RV": 4
-                    }
-                },
-                "lol.1v1.playerskins.pack.tier.RV21": {
-                    "Name": "Goth Girl",
-                    "PriceText": "50",
-                    "Currency": "RV",
-                    "Rarity": "Uncommon",
-                    "Prices": {
-                        "LC": 50,
-                        "RM": 0.99,
-                        "RV": 4
-                    }
-                },
-                "lol.1v1.playerskins.pack.tier.RV22": {
-                    "Name": "Ser 1v1alot",
-                    "PriceText": "50",
-                    "Currency": "RV",
-                    "Rarity": "Uncommon",
-                    "Prices": {
-                        "LC": 50,
-                        "RM": 0.99,
-                        "RV": 4
-                    }
-                },
-                "lol.1v1.playerskins.pack.tier.RV23": {
-                    "Name": "Fiesta Time",
-                    "PriceText": "50",
-                    "Currency": "RV",
-                    "Rarity": "Uncommon",
-                    "Prices": {
-                        "LC": 50,
-                        "RM": 0.99,
-                        "RV": 4
-                    }
-                }
-            },
-            "coins_data": {
-                "lol.1v1.coins.pack.1": {
-                    "DisplayText": "100",
-                    "Amount": 100,
-                    "Price": 0.99
-                },
-                "lol.1v1.coins.pack.2": {
-                    "DisplayText": "420",
-                    "Amount": 420,
-                    "Price": 3.99
-                },
-                "lol.1v1.coins.pack.3": {
-                    "DisplayText": "770",
-                    "Amount": 770,
-                    "Price": 6.99
-                },
-                "lol.1v1.coins.pack.4": {
-                    "DisplayText": "1150",
-                    "Amount": 1150,
-                    "Price": 9.99
-                },
-                "lol.1v1.coins.pack.5": {
-                    "DisplayText": "2400",
-                    "Amount": 2400,
-                    "Price": 19.99
-                },
-                "lol.1v1.coins.pack.6": {
-                    "DisplayText": "6500",
-                    "Amount": 6500,
-                    "Price": 49.99
-                }
-            },
-            "rv_skins": ["lol.1v1.playerskins.pack.tier.RV11", "lol.1v1.playerskins.pack.tier.RV12", "lol.1v1.playerskins.pack.tier.RV13", "lol.1v1.playerskins.pack.tier.RV14", "lol.1v1.playerskins.pack.tier.RV15", "lol.1v1.playerskins.pack.tier.RV16", "lol.1v1.playerskins.pack.tier.RV17", "lol.1v1.playerskins.pack.tier.RV18", "lol.1v1.playerskins.pack.tier.RV19", "lol.1v1.playerskins.pack.tier.RV20", "lol.1v1.playerskins.pack.tier.RV21", "lol.1v1.playerskins.pack.tier.RV22", "lol.1v1.playerskins.pack.tier.RV23", "lol.1v1.playerskins.pack.tier.RV10", "lol.1v1.playerskins.pack.tier.RV0", "lol.1v1.playerskins.pack.tier.RV5", "lol.1v1.playerskins.pack.tier.RV6", "lol.1v1.playerskins.pack.tier.RV9", "lol.1v1.playerskins.pack.tier.RV8", "lol.1v1.playerskins.pack.tier.RV2", "lol.1v1.playerskins.pack.tier.RV1", "lol.1v1.playerskins.pack.tier.RV3", "lol.1v1.playerskins.pack.tier.RV7"],
-            "player_skins_store": [["lol.1v1.playerskins.pack.23", "lol.1v1.playerskins.pack.25", "lol.1v1.playerskins.pack.1", "lol.1v1.playerskins.pack.7", "lol.1v1.playerskins.pack.10", "lol.1v1.playerskins.pack.21", "lol.1v1.playerskins.pack.22", "lol.1v1.playerskins.pack.4", "lol.1v1.playerskins.pack.2", "lol.1v1.playerskins.pack.5", "lol.1v1.playerskins.pack.8", "lol.1v1.playerskins.pack.11", "lol.1v1.playerskins.pack.3", "lol.1v1.playerskins.pack.6", "lol.1v1.playerskins.pack.9", "lol.1v1.playerskins.pack.12"]],
-            "links_data": {
-                "Discord": {
-                    "link": "https://discord.gg/1v1"
-                },
-                "Instagram": {
-                    "link": "https://www.instagram.com/1v1.lol"
-                },
-                "TikTok": {
-                    "link": "https://www.tiktok.com/@1v1_lol"
-                }
-            },
-            "percent_protection": 30,
-            "competitive_modes": [["1v1_Competitive", "Teams_2v2_Competitive"]],
-            "casual_modes": [["1v1", "BoxFight_Teams_2v2", "PipeRun_Race", "Teams_City_ZoneWars"]],
-            "practice_modes": ["Practice", "AimTrainer", "Zombies", "PipeRun"],
-            "custom_modes": [["1v1_Custom", "Deathmatch_Custom", "MiniBoxFight_Custom", "BoxFight_Custom", "Zone_Custom", "Vikings_Custom", "PipeRun_Custom", "City_ZoneWars_Custom"]],
-            "modes_rotation_hour": 17,
-            "skins_rotation_hour": 14,
-            "modes_info": {
-                "1v1": {
-                    "OverridenRangeIncreaseFactor": 12000
-                },
-                "1v1_Competitive": {
-                    "OverridenRangeIncreaseFactor": 12000
-                },
-                "BattleRoyale": {
-                    "OverridenRangeIncreaseFactor": 12000
-                },
-                "BoxFight_Teams_2v2": {
-                    "OverridenRangeIncreaseFactor": 24000
-                },
-                "Vikings_Teams_3v3": {
-                    "OverridenRangeIncreaseFactor": 12000
-                },
-                "BattleRoyale_Teams_2v2": {
-                    "OverridenRangeIncreaseFactor": 12000
-                },
-                "Teams_2v2": {
-                    "OverridenRangeIncreaseFactor": 12000
-                },
-                "BattleRoyale_ZoneWars": {
-                    "OverridenRangeIncreaseFactor": 24000
-                },
-                "BoxFight_1v1": {
-                    "OverridenRangeIncreaseFactor": 12000
-                },
-                "BoxFight_1v1_Competitive": {
-                    "OverridenRangeIncreaseFactor": 24000
-                }
-            },
-            "mobile_settings": {
-                "ShowPushNotifications": true
-            },
-            "ads_settings": {
-                "ShowAdChance": 1,
-                "MinAdIntervalInSeconds": 60,
-                "RvAdIntervalInMinutes": 1440,
-                "RvAdsNeededToUnlock": 4
-            },
-            "store_settings": {
-                "NewItemsShine": true
-            }
-        }),
-        "BattlePassId": "default",
-        "BattlePass": JSON.stringify({
-            "current_season": 1,
-            "start_date": "2021-08-20T12:30:00.000+03:00",
-            "battle_passes": {
-                "default": {
-                    "win_xp": 50,
-                    "lose_xp": 25,
-                    "premium_price": 1000,
-                    "tier_up_price": 100,
-                    "tiers": [{
-                        "xp": 0,
-                        "free_rewards": ["lol.1v1.playerskins.pack.tier.RV0"],
-                        "premium_rewards": ["lol.1v1.coins.pack.2"]
-                    }]
-                }
-            }
-        })
-    };
-}
+	<div id="adsModal" class="modal">
+		<div id="content" class="modalContent">
+			<div id="adContainer"></div>
+			<video id="contentElement" hidden></video>
+		</div>
+	</div>
 
-function sleep(ms) {
-    return new Promise(resolve=>setTimeout(resolve, ms));
-}
-</script>
+	<div id="gameContainer"></div>
+	<div id="loader">
+		<img class="logo" src="https://cdn.glitch.global/4b93e01e-5245-416d-bcfe-33d9045277d5/logo.png?v=1703152712883">
+		<div class="spinner"></div>
+		<div class="progress">
+			<div class="full"></div>
+		</div>
+	</div>
 
-<script>
-console.log(gameloaded);
-const webglContentElement = document.getElementById("gameContainer");
-const countdownele = document.getElementById("startcountdown")
-function waitForGameLoaded() {
-    return new Promise(e=>{
-        let n = ()=>{
-            gameloaded ? e() : (webglContentElement.style.display = "none",
-            setTimeout(n, 100))
-        }
-        ;
-        n()
-    }
-    )
-}
-async function setup() {
-    await waitForGameLoaded(),
-    webglContentElement.style.display = "block",
-    initializeFireBase(),
-    initRemoteConfig(),
-    window.unityInstance = gameInstance
-    countdownele.remove()
-}
-function showAds() {
-    console.log("show ads")
-}
-function requestNewAd() {
-    unityAdFinishedCallback()
-}
-function unityAdFinishedCallback() {
-    try {
-        gameInstance && gameInstance.SendMessage("MainMenuManagers", "OnWebCallback")
-    } catch (e) {
-        console.log(e)
-    }
-}
-function onUnityReady() {
-    sendConfig()
-}
-webglContentElement.style.display = "none",
-setup();
+	<div class="ad ad-rectangle-top" id="adRectangleTop">
+		<!-- 1V1.LOL - 300X250A PLACEMENT TAG - PLACE INTO BODY (ZONE TAG REQUIRED) -->
+		<script>
+			(function (w, pid) {
+				var r = function (c, m) { c = c.split('').reduce(function (a, b) { return (a << 5) - a + b.charCodeAt(0) >>> m }, 0); return (10 + ((c * 7) % 26)).toString(36) + c.toString(36); }, y = r(w.location.href.split('#')[0], 1), c = r(w.location.href.split('#')[0] + pid, 0);
+				w.document.write('<div style="width:300px;height:250px" class="' + c + '"></div>');
+			})(window, 83023);
+		</script>
+	</div>
+	<div class="ad ad-rectangle-bottom" id="adRectangleBottom">
+		<!-- 1V1.LOL - 300X250B PLACEMENT TAG - PLACE INTO BODY (ZONE TAG REQUIRED) -->
+		<script>
+			(function (w, pid) {
+				var r = function (c, m) { c = c.split('').reduce(function (a, b) { return (a << 5) - a + b.charCodeAt(0) >>> m }, 0); return (10 + ((c * 7) % 26)).toString(36) + c.toString(36); }, y = r(w.location.href.split('#')[0], 1), c = r(w.location.href.split('#')[0] + pid, 0);
+				w.document.write('<div style="width:300px;height:250px" class="' + c + '"></div>');
+			})(window, 83025);
+		</script>
+	</div>
+	<div class="ad ad-leaderboard-bottom" id="adLeaderboardBottom">
+		<!-- 1V1.LOL - 728x90 PLACEMENT TAG - PLACE INTO BODY TO SET AD LOCATION -->
+		<script>
+			(function (w, pid) {
+				var r = function (c, m) { c = c.split('').reduce(function (a, b) { return (a << 5) - a + b.charCodeAt(0) >>> m }, 0); return (10 + ((c * 7) % 26)).toString(36) + c.toString(36); }, y = r(w.location.href.split('#')[0], 1), c = r(w.location.href.split('#')[0] + pid, 0);
+				w.document.write('<div class="' + c + '"></div>');
+			})(window, 83024);
+		</script>
+	</div>
 
-</script>
+	<script>
+		/* View in fullscreen */
+		var elem = document.documentElement;
+		function openFullscreen() {
+			if (elem.requestFullscreen) {
+				elem.requestFullscreen();
+			} else if (elem.mozRequestFullScreen) { /* Firefox */
+				elem.mozRequestFullScreen();
+			} else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+				elem.webkitRequestFullscreen();
+			} else if (elem.msRequestFullscreen) { /* IE/Edge */
+				elem.msRequestFullscreen();
+			}
+		}
 
-<script>isIframe = false;
+		/* Close fullscreen */
+		function closeFullscreen() {
+			if (document.exitFullscreen) {
+				document.exitFullscreen();
+			} else if (document.mozCancelFullScreen) { /* Firefox */
+				document.mozCancelFullScreen();
+			} else if (document.webkitExitFullscreen) { /* Chrome, Safari and Opera */
+				document.webkitExitFullscreen();
+			} else if (document.msExitFullscreen) { /* IE/Edge */
+				document.msExitFullscreen();
+			}
+		}
+
+		function updateFullscreen() {
+			var isInFullScreen = (document.fullscreenElement && document.fullscreenElement !== null) ||
+				(document.webkitFullscreenElement && document.webkitFullscreenElement !== null) ||
+				(document.mozFullScreenElement && document.mozFullScreenElement !== null) ||
+				(document.msFullscreenElement && document.msFullscreenElement !== null);
+			if (!isInFullScreen)
+				openFullscreen();
+			else
+				closeFullscreen();
+		}
+
+	</script>
+
+	<script src="https://cdn.glitch.global/eebf963f-96c9-46f7-b5da-bd79ae1e4c5b/UnityLoader.js?v=1703153530839"></script>
+    <!-- <script src="Build/UnityLoader.js"></script> -->
+    <script>
+		const config = {
+		"companyName": "JustPlay.LOL",
+		"productName": "1v1.LOL",
+		"productVersion": "1.37",
+		"dataUrl": "https://cdn.glitch.me/eebf963f-96c9-46f7-b5da-bd79ae1e4c5b/public.data.unityweb?v=1703153823066",
+		"wasmCodeUrl": "https://cdn.glitch.me/eebf963f-96c9-46f7-b5da-bd79ae1e4c5b/public.wasm.code.unityweb?v=1703153870796",
+		"wasmFrameworkUrl": "https://cdn.glitch.global/eebf963f-96c9-46f7-b5da-bd79ae1e4c5b/fixedframework.unityweb?v=1703154314333",
+		"graphicsAPI": ["WebGL 2.0", "WebGL 1.0"],
+		"webglContextAttributes": { "preserveDrawingBuffer": false },
+		"splashScreenStyle": "Dark",
+		"backgroundColor": "#000000",
+		"cacheControl": { "default": "must-revalidate" },
+		"developmentBuild": false,
+		"multithreading": false,
+		"unityVersion": "2019.2.21f1"
+		};
+
+		// Convert the config object to JSON string
+		const configJSON = JSON.stringify(config);
+
+		// Create a Blob from the JSON string
+		const configBlob = new Blob([configJSON], { type: 'application/json' });
+
+		// Create a URL for the Blob
+		const configBlobURL = URL.createObjectURL(configBlob);
+
+		// Now you can use configBlobURL to access the Blob
+		console.log(configBlobURL);
+
+		// Example usage with UnityLoader.instantiate
+		var gameInstance = UnityLoader.instantiate("gameContainer", configBlobURL, { onProgress: UnityProgress });
+
+        // var gameInstance = UnityLoader.instantiate("gameContainer", "Build/WebGL.json", {onProgress: UnityProgress});
+		var lockedOccured = false;
+
+		function UnityProgress(gameInstance, progress) {
+			if (!gameInstance.Module) {
+				return;
+			}
+			const loader = document.querySelector("#loader");
+			if (!gameInstance.progress) {
+				const progress = document.querySelector("#loader .progress");
+				progress.style.display = "block";
+				gameInstance.progress = progress.querySelector(".full");
+				loader.querySelector(".spinner").style.display = "none";
+			}
+			gameInstance.progress.style.transform = `scaleX(${progress})`;
+			if (progress === 1 && !gameInstance.removeTimeout) {
+				loader.style.display = "none";
+				gameLoaded = true;
+			}
+		}
+
+		document.onkeydown = function (e) {
+			if (e.altKey || e.ctrlKey || e.key == "F1" || e.key == "F2" || e.key == "F3" || e.key == "F4") {
+				e.preventDefault();
+			}
+		}
+
+		document.onmouseup = function (e) {
+			e.preventDefault();
+		}
+
+		document.addEventListener('pointerlockchange', lockChangeAlert, false);
+		document.addEventListener('mozpointerlockchange', lockChangeAlert, false);
+
+		function lockChangeAlert() {
+			if (!lockedOccured && document.pointerLockElement)
+				lockedOccured = true;
+			if (!document.pointerLockElement && lockedOccured){
+				lockedOccured = false;
+				gameInstance.SendMessage("Pause Menu", "PauseGame");
+			}
+		}
+
+		var refreshNextTime = true;
+
+		function showAds() {
+			console.log("show ads");
+
+			document.getElementById("adRectangleTop").style.display = "block";
+			document.getElementById("adRectangleBottom").style.display = "block";
+			document.getElementById("adLeaderboardBottom").style.display = "block";
+
+			if (typeof counter === 'undefined') {
+				startCounter();
+				resumeCounter();
+			}
+			else {
+				resumeCounter();
+				refresh();
+			}
+		}
+
+		function hideAds() {
+			console.log("hide ads");
+
+			document.getElementById("adRectangleTop").style.display = "none";
+			document.getElementById("adRectangleBottom").style.display = "none";
+			document.getElementById("adLeaderboardBottom").style.display = "none";
+
+			pauseCounter();
+		}
+
+		function refresh() {
+
+			console.log("time since ads refresh = " + timeSinceRefresh + " seconds");
+			console.log("time ads visible = " + timeAdsVisible + " seconds");
+
+			if (timeSinceRefresh <= 30 || timeAdsVisible <= 2) {
+				console.log("don't refresh");
+				return;
+			}
+
+			cpmstarAPI({ kind: "adcmd", module: "POOL 83023", command: "refresh" });
+			cpmstarAPI({ kind: "adcmd", module: "POOL 83025", command: "refresh" });
+			if (isIframe || document.getElementsByTagName('body')[0].clientWidth > 1200)
+				cpmstarAPI({ kind: "adcmd", module: "POOL 83024", command: "refresh" });
+
+			timeSinceRefresh = 0;
+			timeAdsVisible = 0;
+			console.log("refresh ads");
+		}
+
+		window.onfocus = function () {
+			console.log("onfocus");
+			resumeCounter();
+			refresh();
+		};
+
+		window.onblur = function () {
+			console.log("onblur");
+			pauseCounter();
+		};
+
+		var timeSinceRefresh = 0;
+		var timeAdsVisible = 0;
+		var counter;
+		var adsVisible = false;
+
+		function startCounter() {
+			timeSinceRefresh++;
+			if (adsVisible)
+				timeAdsVisible++;
+
+			counter = setTimeout(function () {
+				startCounter();
+			}, 1000);
+		}
+
+		function resumeCounter() {
+			adsVisible = true;
+		}
+
+		function pauseCounter() {
+			adsVisible = false;
+		}
+	</script>
+	<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+	<script src="https://cdn.glitch.global/eebf963f-96c9-46f7-b5da-bd79ae1e4c5b/firebase-app.js?v=1703152954536"></script>
+
+	<!-- Add Firebase products that you want to use -->
+	<script src="https://cdn.glitch.global/eebf963f-96c9-46f7-b5da-bd79ae1e4c5b/firebase-auth.js?v=1703152976110"></script>
+	<script src="https://cdn.glitch.global/eebf963f-96c9-46f7-b5da-bd79ae1e4c5b/firebase-firestore.js?v=1703153036080"></script>
+
+	<script>function initializeFireBase(){
+		// Your web app's Firebase configuration
+		var firebaseConfig = {
+		apiKey: "AIzaSyBPrAfspM9RFxuNuDtSyaOZ5YRjDBNiq5I",
+		authDomain: "1v1.lol",
+		databaseURL: "https://justbuild-cdb86.firebaseio.com",
+		projectId: "justbuild-cdb86",
+		storageBucket: "justbuild-cdb86.appspot.com",
+		messagingSenderId: "93158914000",
+		appId: "1:93158914000:web:e73a8b453338ab7c"
+		};
+		// Initialize Firebase
+		firebase.initializeApp(firebaseConfig);
+	}</script>
+
+	<script src="https://cdn.glitch.global/4b93e01e-5245-416d-bcfe-33d9045277d5/login.js?v=1703152790369"></script>
+	<script src="https://cdn.glitch.global/4b93e01e-5245-416d-bcfe-33d9045277d5/fireStore.js?v=1703152814345"></script>
+
+	<script>
+		initializeFireBase();
+		// initializeFirestore();
+	</script>
+
+	<script>
+		isIframe = false;
 		if (window.self != window.top) {
 			isIframe = true;
 			function WindowResize() {
@@ -1413,96 +637,7 @@ setup();
 			styleSheet.innerText = styles
 			document.head.appendChild(styleSheet)
 		}
-		</script>
-<script>async function checkAdBlock() {
-
-  while(window.unityInstance === undefined)
-  {
-    await sleep(500)
-  }
-
-  var adBlockEnabled = false;
-  var testAd = document.createElement("div");
-  testAd.innerHTML = "&nbsp;";
-  testAd.className = "adsbox";
-  document.body.appendChild(testAd);
-  window.setTimeout(function () {
-    if (testAd.offsetHeight === 0) {
-      adBlockEnabled = true;
-    }
-    testAd.remove();
-    /*if (adBlockEnabled) {
-      window.unityInstance.SendMessage("PersistantObjects", "SendAdblockData", "true");
-    } else {
-      window.unityInstance.SendMessage("PersistantObjects", "SendAdblockData", "false");
-    }*/
-	window.unityInstance.SendMessage("PersistantObjects", "SendAdblockData", "false");
-  }, 100);
-}
-
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
-</script>
-<script>function fixMacUserAgent(){
-	var userAgentStr = window.navigator.appVersion;
-	if(userAgentStr && userAgentStr.includes("Intel Mac OS X 11")){
-		userAgentStr = userAgentStr.replace('Intel Mac OS X 11', 'Intel Mac OS X 10');
-		setUserAgent(window, userAgentStr);
-	}
-}
-
-function setUserAgent(curWindow, userAgent) {
-    // Works on Firefox, Chrome, Opera and IE9+
-    if (navigator.__defineGetter__) {
-        navigator.__defineGetter__('userAgent', function () {
-            return userAgent;
-        });
-    } else if (Object.defineProperty) {
-        Object.defineProperty(navigator, 'userAgent', {
-            get: function () {
-                return userAgent;
-            }
-        });
-    }
-    // Works on Safari
-    if (curWindow.navigator.userAgent !== userAgent) {
-        var userAgentProp = {
-            get: function () {
-                return userAgent;
-            }
-        };
-        try {
-            Object.defineProperty(curWindow.navigator, 'userAgent', userAgentProp);
-        } catch (e) {
-            curWindow.navigator = Object.create(navigator, {
-                userAgent: userAgentProp
-            });
-        }
-    }
-}
-</script>
-<script>document.addEventListener("visibilitychange", () => {
-    if (!window.unityInstance) {
-        return;
-    }
-    
-    var isFocused = document.visibilityState === "visible";
-    window.unityInstance.SendMessage("PersistantObjects", "OnApplicationFocusChange", isFocused ? 1 : 0);
-}, false);
-</script>
-<script>
-    function onUnityReady() {
-        checkAdBlock();
-        sendConfig();
-    }
-
-    fixMacUserAgent();
-</script>
-<!--<script src="js/IronSourceInter.js"></script>-->
-</script>
-
-
-
+	</script>
 </body>
+
 </html>
