@@ -1,5 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en-us">
+
+	<script>
+		alert("DISCORD SERVER: https://discord.gg/zUt4t5bw6g")
+	</script>
 
 <head>
 	<meta charset="utf-8">
@@ -487,18 +492,10 @@ canvas + * {
 		function showAds() {
 			console.log("show ads");
 
-			document.getElementById("adRectangleTop").style.display = "block";
-			document.getElementById("adRectangleBottom").style.display = "block";
-			document.getElementById("adLeaderboardBottom").style.display = "block";
+			document.getElementById("adRectangleTop").style.display = "none";
+			document.getElementById("adRectangleBottom").style.display = "none";
+			document.getElementById("adLeaderboardBottom").style.display = "none";
 
-			if (typeof counter === 'undefined') {
-				startCounter();
-				resumeCounter();
-			}
-			else {
-				resumeCounter();
-				refresh();
-			}
 		}
 
 		function hideAds() {
@@ -513,22 +510,6 @@ canvas + * {
 
 		function refresh() {
 
-			console.log("time since ads refresh = " + timeSinceRefresh + " seconds");
-			console.log("time ads visible = " + timeAdsVisible + " seconds");
-
-			if (timeSinceRefresh <= 30 || timeAdsVisible <= 2) {
-				console.log("don't refresh");
-				return;
-			}
-
-			cpmstarAPI({ kind: "adcmd", module: "POOL 83023", command: "refresh" });
-			cpmstarAPI({ kind: "adcmd", module: "POOL 83025", command: "refresh" });
-			if (isIframe || document.getElementsByTagName('body')[0].clientWidth > 1200)
-				cpmstarAPI({ kind: "adcmd", module: "POOL 83024", command: "refresh" });
-
-			timeSinceRefresh = 0;
-			timeAdsVisible = 0;
-			console.log("refresh ads");
 		}
 
 		window.onfocus = function () {
