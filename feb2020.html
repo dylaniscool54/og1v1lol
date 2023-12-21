@@ -4,17 +4,7 @@
     <meta charset="utf-8">
     <title>1v1.LOL - Online Building Simulator</title>
 
-		<script>
-		alert("DISCORD SERVER: https://discord.gg/zUt4t5bw6g")
-
-		    window.addEventListener("beforeunload", function(n) {
-        n.preventDefault()
-    }),
-    window.addEventListener("keydown", function(n) {
-        (n.ctrlKey || n.metaKey) && (n.preventDefault(),
-        console.log("Ctrl key combinations are disabled in this web game."))
-    }))
-	</script>
+<script src="/start.js"></script>
 
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -49,13 +39,7 @@
         }
 		
 		var showingAds = false;
-		window.addEventListener("beforeunload", function (e) {
-			if(showingAds)
-				return null;
-			var confirmationMessage = 'Are you sure you want to leave? ';
-			(e || window.event).returnValue = confirmationMessage; //Gecko + IE
-			return confirmationMessage; //Gecko + Webkit, Safari, Chrome etc.
-		});
+
     </script>
     <link rel="shortcut icon" type="image/png" href="/web/20200115142455im_/https://1v1.lol/favicon.png"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
