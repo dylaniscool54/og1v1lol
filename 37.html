@@ -21,35 +21,11 @@
 		gtag('config', 'UA-118283086-6');
 	</script>
 	<script>
-		var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+	var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
-		if (/bot|crawler|spider|crawling/i.test(userAgent)) {
-			// do nothing
-		}
-
-		// Windows Phone
-		else if (/windows phone/i.test(userAgent)) {
-			window.location.replace("/mobile");
-		}
-
-		// Android
-		else if (/android/i.test(userAgent)) {
-			window.location.replace("https://web.archive.org/web/20200820135317/https://play.google.com/store/apps/details?id=lol.onevone");
-		}
-
-		// iOS
-		else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-			window.location.replace("https://web.archive.org/web/20200820135317/https://apps.apple.com/app/id1508620125");
-		}
 
 		var gameLoaded = false;
-		window.addEventListener("beforeunload", function (e) {
-			if (adsVisible || !gameLoaded || !lockedOccured)
-				return null;
-			var confirmationMessage = 'Are you sure you want to leave? ';
-			(e || window.event).returnValue = confirmationMessage; //Gecko + IE
-			return confirmationMessage; //Gecko + Webkit, Safari, Chrome etc.
-		});
+
 	</script>
 	<link rel="shortcut icon" type="image/png" href="https://cdn.glitch.global/5e64cdf4-b776-4d2b-b91a-a27d0a4197b9/favicon.png?v=1703156738115"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
