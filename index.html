@@ -297,6 +297,54 @@ canvas + * {
 </head>
 
 <body>
+	<style>
+		body {
+		  display: flex;
+		  align-items: center;
+		  justify-content: center;
+		  height: 100vh;
+		  margin: 0;
+		  background-color: #f0f0f0; /* Set your desired background color */
+		}
+	
+		#startmsg {
+		  text-align: center;
+		  padding: 20px;
+		  background-color: #333333;
+		  color: #ffffff;
+		}
+	
+		p {
+		  color: #ffffff;
+		  margin: 0;
+		}
+
+		a {
+		  color: #00d9ff;
+		  margin: 0;
+		}
+
+		button {
+		  padding: 10px;
+		  background-color: #4CAF50;
+		  color: #ffffff;
+		  border: none;
+		  cursor: pointer;
+		}
+	  </style>
+
+	<div id="startmsg">
+
+		<p>og1v1.lol is an unoffical project and is not affiliated with 1v1.lol or justplay.lol</p>
+		<br>
+		<a href="https://discord.com/invite/zUt4t5bw6g">DISCORD SERVER</a>
+		<br>
+		<br>
+		<p>You can play other versions <a href="/choose.html">here</a></p>
+		<br>
+		<button id="acceptbtn">PLAY</button>
+	</div>
+
 	<div id="generalModal" class="modal">
 		<div id="generalModalContent" class="modalContent"></div>
 	</div>
@@ -308,8 +356,8 @@ canvas + * {
 		</div>
 	</div>
 
-	<div id="gameContainer"></div>
-	<div id="loader">
+	<div id="gameContainer" style="display: none;"></div>
+	<div id="loader" style="display: none;">
 		<img class="logo" src="https://cdn.glitch.global/4b93e01e-5245-416d-bcfe-33d9045277d5/logo.png?v=1703152712883">
 		<div class="spinner"></div>
 		<div class="progress">
@@ -388,8 +436,14 @@ canvas + * {
 
 	<script src="https://cdn.glitch.global/eebf963f-96c9-46f7-b5da-bd79ae1e4c5b/UnityLoader.js?v=1703153530839"></script>
     <!-- <script src="Build/UnityLoader.js"></script> -->
+
     <script>
-      var realcodeurl = "https://cdn.glitch.me/204b2d28-62f0-414e-bda3-49e968926602/public.wasm.code.unityweb?v=1703223149519"
+	const acceptbtn = document.getElementById("acceptbtn")
+	const startmsg = document.getElementById("startmsg")
+	const loader = document.getElementById("loader")
+	const gamecont = document.getElementById("gameContainer")
+
+	var realcodeurl = "https://cdn.glitch.me/204b2d28-62f0-414e-bda3-49e968926602/public.wasm.code.unityweb?v=1703223149519"
 		const config = {
 		"companyName": "JustPlay.LOL",
 		"productName": "1v1.LOL",
@@ -416,10 +470,17 @@ canvas + * {
 		// Create a URL for the Blob
 		const configBlobURL = URL.createObjectURL(configBlob);
 
-		// Now you can use configBlobURL to access the Blob
+
+		const leavebus = new Audio("https://cdn.glitch.global/6c96444c-7503-4533-a076-858b14c7437d/clicked.mp3")
+
+	acceptbtn.onclick = function() {
+		leavebus.play();
+		startmsg.remove()
+		loader.style.display = ""
+		gamecont.style.display = ""
+
 		console.log(configBlobURL);
 
-		// Example usage with UnityLoader.instantiate
 		var gameInstance = UnityLoader.instantiate("gameContainer", configBlobURL, { onProgress: UnityProgress });
 
         // var gameInstance = UnityLoader.instantiate("gameContainer", "Build/WebGL.json", {onProgress: UnityProgress});
@@ -487,23 +548,13 @@ canvas + * {
 		}
 
 		function refresh() {
-		console.log("Refresh")
-				document.getElementById("adRectangleTop").style.display = "none";
+			document.getElementById("adRectangleTop").style.display = "none";
 			document.getElementById("adRectangleBottom").style.display = "none";
 			document.getElementById("adLeaderboardBottom").style.display = "none";
 			pauseCounter();
 		}
 
-		window.onfocus = function () {
-			console.log("onfocus");
-			resumeCounter();
-			refresh();
-		};
-
-		window.onblur = function () {
-			console.log("onblur");
-			pauseCounter();
-		};
+		showAds()
 
 		var timeSinceRefresh = 0;
 		var timeAdsVisible = 0;
@@ -527,7 +578,10 @@ canvas + * {
 		function pauseCounter() {
 			adsVisible = false;
 		}
+
+	}
 	</script>
+
 	<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
 	<script src="https://cdn.glitch.global/eebf963f-96c9-46f7-b5da-bd79ae1e4c5b/firebase-app.js?v=1703152954536"></script>
 
