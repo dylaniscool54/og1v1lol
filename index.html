@@ -471,8 +471,7 @@ canvas + * {
 		gameInstance = UnityLoader.instantiate("gameContainer", configBlobURL, { onProgress: UnityProgress });
 
         // var gameInstance = UnityLoader.instantiate("gameContainer", "Build/WebGL.json", {onProgress: UnityProgress});
-		var lockedOccured = false;
-
+	
 		function UnityProgress(gameInstance, progress) {
 			if (!gameInstance.Module) {
 				return;
@@ -495,6 +494,9 @@ canvas + * {
 
 	}
 	    //FUCK ADS!!!!!!!
+
+	    	var lockedOccured = false;
+
 	    		document.getElementById("adRectangleTop").style.display = "none";
 			document.getElementById("adRectangleBottom").style.display = "none";
 			document.getElementById("adLeaderboardBottom").style.display = "none";
