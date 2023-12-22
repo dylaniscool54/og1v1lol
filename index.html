@@ -5,7 +5,10 @@
 
 <script src="/start.js"></script>
 <script>
-	alert("you can access other versions from https://og1v1.lol/choose.html")
+	     if (!localStorage.getItem('alertShown')) {
+                alert("You can access other versions from https://og1v1.lol/choose.html");
+                localStorage.setItem('alertShown', true);
+            }
 </script>
 <head>
 	<meta charset="utf-8">
