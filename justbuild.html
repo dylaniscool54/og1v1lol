@@ -17,24 +17,7 @@
 	<script>
 		var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
-		if (/bot|crawler|spider|crawling/i.test(userAgent)) {
-			// do nothing
-		}
 
-		// Windows Phone
-		else if (/windows phone/i.test(userAgent)) {
-			window.location.replace("/mobile");
-		}
-
-		// Android
-		else if (/android/i.test(userAgent)) {
-			window.location.replace("https://play.google.com/store/apps/details?id=lol.onevone");
-		}
-
-		// iOS
-		else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-			window.location.replace("https://apps.apple.com/app/id1508620125");
-		}
 	</script>
     <link rel="shortcut icon" type="image/png" href="https://cdn.glitch.global/5a0358e3-8674-4c6f-ad45-dc9177a9ce01/favicon%20(2).png?v=1703162092655"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
