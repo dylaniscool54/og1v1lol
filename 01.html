@@ -309,8 +309,7 @@ const configBlobURL = URL.createObjectURL(configBlob);
             document.getElementById("adRectangleTop").style.display = "block";
 			document.getElementById("adRectangleBottom").style.display = "block";
             document.getElementById("adLeaderboardBottom").style.display = "block";
-					
-			refresh();
+
         }
 
         function hideAds() {
@@ -327,37 +326,17 @@ const configBlobURL = URL.createObjectURL(configBlob);
 		
 		function refresh(){
 		
-			if(!useRefresh || !needRefresh){
-				needRefresh = true;
-				return;
-			}
-			
-		
-			var timeSinceRefresh = new Date() - refreshTime; //in ms
-			if(timeSinceRefresh < 30*1000){
-				console.log("don't refresh, time since last refresh " + timeSinceRefresh / 1000 + " seconds");
-				return;
-			}
-		
-			if(useAdInPlay){
-				aiptag.cmd.display.push(function() {
-					aipDisplayTag.display('1v1-lol_300x250');
-					aipDisplayTag.display('1v1-lol_300x250_2');
-					aipDisplayTag.display('1v1-lol_728x90');
-				});
-			}
-			else if(useAdManager){
-				if(googletag && googletag.pubads) // null when adblock is enabled
-					googletag.pubads().refresh();
-			}
-			
-			refreshTime = new Date();
+			showingAds = true;
+			if(useAdInPlay || useAdManager)
+				aipAPItag.showConsentToolButton();
+				
+            document.getElementById("adRectangleTop").style.display = "block";
+			document.getElementById("adRectangleBottom").style.display = "block";
+            document.getElementById("adLeaderboardBottom").style.display = "block";
 			console.log("refresh ads");
 		}
 
-		window.onfocus = function() {
-			refresh();
-		};
+	
     </script>
 	<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
 	<script src="https://cdn.glitch.global/5e64cdf4-b776-4d2b-b91a-a27d0a4197b9/firebase-app.js?v=1703155721880"></script>
