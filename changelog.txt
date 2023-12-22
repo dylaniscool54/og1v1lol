@@ -1,0 +1,457 @@
+#from https://1v1.lol/changelog.txt
+
+find the version you want using this.
+
+== 4.34 - 26 January, 2022  
+- Battle Royale Duos: Jump into the fight with a friend!
+- The NEW LOL Style HUD for mobile: building and editing has never been easier
+- NEW WEAPON! Try the Auto Shotgun in the Battle Royale Mode
+- Weapon balance changes for Battle Royale
+- New music and sound effects
+- Battle Royale Practice: improve your skills in this new practice mode against bots
+- 1v1 Arena & FFA custom modes are back! Gather your party and have fun
+- Bug fixes
+Have fun and 1v1!
+
+== 4.24 - 23 May, 2022  
+- Friends List - Add your friends, see who's online and play together!
+- New modes - 3v3 & 4v4 - get ready to enter the mayhem!
+- Bug fixes and Performance improvements
+Have fun and 1v1!
+
+== 4.23 - 19 April, 2022 
+- New Mode - FFA! The fan favorite mode returns in the Classic 1v1 map, 8 players battle for the top score
+- 2 New Skins - Bumblebee & Octavia!
+- News Feed - a new feature to keep you all updated on what's going on with 1v1
+- Mode Info - Added the option to show all details on each mode
+- Various bug fixes and performance improvements
+Have fun and 1v1!
+
+== 4.20 - 2 March, 2022
+LOL Pass Season 2 - Season of the Future - is finally here!
+- 30 tiers of brand new skins, emotes, stickers and LOL Coins for you to earn
+- Introducing a brand new challenge system!
+- Complete daily and weekly challenges and progress through the new LOL Pass quicker and grab those rewards!
+- Equipped skin now displays in Top Left avatar window
+- Fall damage now active in all modes except 1v1 Arena
+- General Bug fixes and performance improvements
+Have fun and 1v1!
+
+== 4.19 - 8 February, 2022
+- Added Bundles to Store - Purchase new skins together for a discounted price
+- New modes - Battle Royale & Battle Royale Duos
+- Mystery Skins in the shop are now random
+- Report system improvements
+- New effects and UI upgrades
+Have fun and 1v1!
+
+== 4.17 - 11 January, 2022
+- New mode - Snow FFA
+- Bug fixes and Performance improvements
+Have fun and 1v1!
+
+== 4.16 - 16 December, 2021
+- Welcome to the 1v1 Winter Holidays event!
+- Celebrate with 3 new holiday themed skins - Santa, Wanda & Cosmo
+- 2 new holiday inspired modes
+- Play the new Snow Zone mode and earn a special festive reward!
+- Special sales in the shop!
+- New VFX
+- Bug fixes and Performance improvements
+Have fun and 1v1!
+
+== 4.13 - 28 November, 2021
+- New Modes - Farm 1v1 & Farm 2v2
+- New Farm Skins - Check out the item shop
+- Report Player Feature - Help us keep 1v1 fair
+- Added counter with the number of wins in each mode
+- Bug fixes and performance improvements
+Have fun and 1v1!
+
+== 4.11 - 31 October, 2021
+- Introducing the new 1v1.LOL Halloween Event!
+- Try the brand new mode Pumpkin Ball! The first team to hold the pumpkin and reach 100 points wins! Earn more Battle Pass XP and earn all the rewards you've missed!
+- 3 New skins for a limited time! Get them before they disappear
+- A spooky, holiday themed overhaul to the game
+- Performance Improvements - FPS improved on most lower end devices
+Have fun and 1v1!
+
+== 3.900 - 11 October, 2021
+- Daily Rewards! Login everyday and earn bigger and bigger rewards!
+- New Modes added:
+- Gulag 1v1 and 2v2 - No builds, just guns. Can you emerge victorious in the new close quarters Gulag Map?
+- Box 1v1 - The fan-favorite returns with a 1v1 option
+- 2v2 - the classic 1v1 experience, now in duos!
+- 1v1 Arena - who can rake up the most kills in this Classic mode, now with matchmaking
+- SFX and VFX improvements
+- Controller related bug fixes
+Have fun and 1v1!
+
+== 3.700 - 1 September, 2021
+- Introducing LOL Pass - 30 tiers of amazing rewards waiting for you! Play 1v1's multiplayer modes and earn XP to earn your rewards!
+- Introducing Emotes and Stickers - Unlock unique animations and graphics and show them off during the game!
+- New Locker - Locker has been reworked to support all the new customizations
+- New Match Complete Experience
+- Added the option to buy Mystery Skins with LOL Coins
+- New VFX
+- Added kick from Party option
+Have fun and 1v1!
+
+== 3.600 - 8 August, 2021  ==
+- New Skin - Sonya
+- New Feature - Daily Modes - a rotating selection of amazing modes that change every day
+- Various bug fixes and performance improvements
+
+== 3.500 - 1 August, 2021  ==
+- New Mode - City Zone Duos - Up to 8 players pair up and battle in the brand new City Map. Who will survive before the zone takes them?
+- New Mode - 2v2 Competitive - Jump into the 2v2 ladder with a friend and rank up!
+- New Mode - Race - Race through the Pipe Run Course with up to 8 players, see who can perform flawlessly and finish first.
+- New Feature - Competitive Ranks - New Rank icons! Climb and see if you can reach the Heavenly Tier!
+- 13 New skins - Gotta catch them all
+Have fun!
+
+== 3.400 - 21 July, 2021  ==
+- Added brand new skins - Astrid and Olaf - Viking Warriors from a different time, here to dominate the new Team Deathmatch Vikings Map
+- Added fall damage to Vikings TDM Map
+- Various bug and performance fixes
+
+== 3.300 - 11 July, 2021  ==
+- New mode - Vikings Team Deathmatch
+The team that gets the most kills in 2 minutes wins
+
+== 3.200 - 4 July, 2021  ==
+- Custom Games are here!
+Invite your friends, choose a mode, divide into teams, and battle!
+Many modes to choose from -> deathmatch, 1v1 arena, zone custom, box custom, and more soon...
+
+- New Parkour Mode - Pipe Run
+Can you set the best time? Visit our Social Media for a competition!
+
+- Guests can change names
+
+- Fixed bugs, improved performance, and now you can Rotate Player in Game Lobby
+
+== 3.100 - 18 June, 2021  ==
+New pickaxe design
+Added an option to switch between players when spectating
+Added App Store & Google Play links
+Added icon showing who is the party leader
+Changed zone mode siphon from 30 to 50
++ Bug fixes & FPS improvements
+
+== 3.000 - 15 June, 2021  ==
+Redesign all the UI
+New buildings design
+Added lobby - now you can invite friends to play with you
+Added controller settings
+Added Zone mode
+
+Many more modes & maps coming soon!
+
+== 2.300 - 8 April, 2021  ==
+New mode - Zombies Survival
+New skins in the item shop
+Added spectate (in Box 2v2 & BR duos)
+Fixed ramps randomly rotated
+
+& Fixed game didn't work on mac on chrome
+
+== 2.200 - 1 March, 2021  ==
+New in the store:
+LOL coins
+New skins
+Added preview of skin before purchase
+
+New in the game:
+Added shooting effect
+Fixed camera shaking
+animations improvements - jumping & aiming, running diagonal
+
+& New splash screen
+
+== 2.120 - 19 January, 2021  ==
+- New skins in the store!
+- Replaced rendering system (improve lightning performance = more FPS and better looking skins)
+- Fixed bugs:
+dying while crouching in party
+invisible pickaxe bug
+and more...
+
+== 2.111 - 12 January, 2021  ==
+Fixed X-Bot skin unlimited health
+
+== 2.00 - 10 January, 2021  ==
+Added skins!
+
+== 1.70 - 17 December, 2020  ==
+New UI design! :)
+
+== 1.60 - 22 November, 2020  ==
+Added profile & stats
+Split between box comp & 1v1 comp rating
+Fixed many small bugs (including the trophies bug)
+
+== 1.51 - 16 November, 2020  ==
+Fixed some bugs (and accidentally creating a bug that you see the xp instead of trophies) :/
+
+== 1.50 - 3 November, 2020  ==
+Created a server to the game (Yes you don't see it, but it will help us to add lot of content soon like daily modes, skins, progression and more :)
+Added XP levels
+Load your settings when you login with your account
+Added auto open doors
+
+improvements:
+Improved aim trainer
+AR less damage from far
+Fixed when joystick connected, the mouse moves really fast
+Fixed stuck in buildings when crouching
+FPS improvements when there're lots of builds
+
+== 1.40 - 7 October, 2020  ==
+Fixed stuck in buildings
+FPS improvements
+You can build a ramp farther (now a few popular high-ground retakes will work)
+
+== 1.38 - 23 September, 2020  ==
+Box competitive smaller box size
+improve competitive matchmaking speed
+Fixed box (getting out, teleporting, stick to walls)
+Fixed edited wall stays in the air
+Fixed double wall bug
+Show arrow above your teammate
+Fixed sometimes player/buildings are white bug
+FPS improvements
+
+== 1.373 - 10 September, 2020  ==
+New rating system, starts at 0
+Show rating change after the game
+FPS improvements when there are lots of builds
+Aim trainer improve FPS
+Now you can go out of the map
+Easier to edit walls & floors
+Show bullets also on the ground
+Fixed cannot build roof over edited ramp
+Added loading screen
+Fixed many more small bugs
+
+== 1.37 - 17 August, 2020  ==
+New mode - battle royale duos
+Added box to party
+Immune for 2 seconds at the start of the game
+Revert weapons damage change
+
+Bug fixes:
+Fixed shooting and walking through walls (at least 50%)
+Fixed move through a wall with a window
+Easier to edit a wall with window
+Player can look much higher
+Fixed box 3vs1
+Fixed pickaxe sound had delay
+
+== 1.33 - 29 July, 2020  ==
+Reduce game size
+Replaced modes
+Save settings in the server when you login with account
+Show num place in battle royale
+Make crosshair transparent while reloading
+Improve shotgun hitbox
+Reduce shotgun damage from far
+Removed sniper from casual box mode
+Removed practice modes timer
+Improved controller aim assist
+improved comp matchmaking time
+
+Bug fixes:
+Fixed FPS & ping
+Fixed scroll wheel reset
+Scroll wheel reset works also while editing build
+Scroll wheel reset takes the keybind you set for reset edit
+Fixed Cannot play party with more than 4 players
+Fixed can build ramp & pyramid in the same place
+Fixed stuck in ramp
+Fixed You can get stuck in top of the box
+Fixed ghost peek
+Fixed switch to a weapon & aim right away not aiming
+Fixed You can float in the air while editing floor
+Fixed didn't hit player when shooting legs or hands
+Fixed pickaxe audio looping
+Fixed you could aim with weapon in air after reloading
+Fixed you could build a wall behind you
+Fixed you can shoot a player behind you
+Fixed you stick to a wall if you go towards it
+
+== 1.32 - 19 July, 2020  ==
+Replaced default character to low-poly for higher fps for everyone
+Added Zone mode
+Added Free Build mode
+
+Improvements:
+Added cancel matchmaking button
+Show weapon in kill-feed
+Removed snipers from box
+Sniper was too accurate when not aiming
+Faster shotgun reload
+Start a game after 30 seconds even if there are not enough players
+
+Bug fixes:
+Fixed couldn't change weapons on controller
+Fixed camera when there is a building behind you
+Fixed head picks from builds
+Fixed box matchmaking bug (3vs1)
+Fixed getting out of the box bug
+Fixed when editing you can go through buildings
+Lowered sniper reload sound
+Fixed pickaxe sound & animation
+Fixed cannot build a roof on top of edited stairs
+Buildings were too invisible when they had low health
+Automatically choose best ping region when new regions added to the game
+
+== 1.30 - 25 June, 2020  ==
+Added sniper
+Added Aim Trainer
+Added 1v1 box competitive
+Fixed bug with mouse locked in the screen and cannot rotate 360
+Added South America & Australia servers
+Added online players counter in each region
+Fixed many more bugs
+
+Controllers:
+Added controller aim assist
+Fixed switch to weapons bugs
+
+== 1.20 - 3 June, 2020  ==
+- Added scroll wheel reset
+- Adjusted player collider, now it's not too easy to hit someone
+- Added filters for bad words in name
+- Added health animation
+- Battle Royale changed to 8 players for faster queue
+- Added filters for bad words in name
+- Improved damage indicator
+- Fixed bug when rebinding left mouse key
+- Fixed crosshair bug when switching between weapons & buildings
+
+== 1.11 - 12 May, 2020  ==
+- Unlimited building & ammo in casual modes
+  Limited building & ammo only in competitive
+- New weapons design
+- Removed traps
+- Fixed pickaxe can hit teammates
+- Fixed bug in party - when dying while crouching
+- Decreased time to equip weapons
+
+== 1.10 - 11 May, 2020  ==
+- Anti Cheat
+- Added building ammo 1500
+- Added time to equip a weapon
+- Added bloom to weapons when shooting
+- Make myself invisible when there is a wall right behind me (invisible only for me)
+
+== 1.092 - 5 Apr, 2020  ==
+- Added box 2v2 mode
+
+== 1.091 - 2 Apr, 2020  ==
+- Fixed 90s
+- Fixed controllers
+- Arrange 2v2 & 4v4 players spawn points
+
+== 1.09 - 30 Mar, 2020  ==
+- Added 2v2 & 4v4 modes
+- Fixed getting out of the box in box mode (I hope)
+- Returned traps
+- Show the rating of players in the top right side of the screen
+- Added kick from party button in the lobby (only the party host can kick)
+- Fixed login with Facebook
+- Fixed walking slow on stairs
+- New ground design
+
+== 1.081 - 9 Mar, 2020  ==
+- Fixed competitive rating bug
+
+== 1.08 - 8 Mar, 2020  ==
+- Added Box mode
+- Fixed crouch
+- Added siphon (+50 hp when killing someone)
+- Seperated health from shields
+- Added exit button from game
+- Fixed couldn't build stairs under roof
+- Fixed could build stairs near flipped stairs in the air
+- Fixed when editing stairs, you couldn't walk on the arrows of the editing
+- Party code now has region inside the code to avoid regions confusion
+- Removed traps
+
+== 1.07 - 2 Feb, 2020  ==
+- Fixed ghost peeking
+- Fixed players could run away from the game and jump to the void
+- Fixed can't view far players
+- Fixed wall blue blinking
+- Added US West region
+- Show num kills in battle royale
+- Reduced time to destroy buildings in air, 0.5 -> 0.3 seconds
+- Controllers added Sensitivity Y multiplier
+- Controllers Fixed switching to weapon for non PS4 controllers
+- Added top 1000 leaderboard (It's static right now, I'll make it realtime)
+
+== 1.064 - 27 Jan, 2020  ==
+- Added Twitch top live streamers
+- Added button to destroy all buildings in party (only the creator of the party can)
+
+== 1.063 - 24 Jan, 2020  ==
+- Changed AR & Shotgun shot sounds
+- Decreased time to open trap from 2.5 seconds to 2.0
+
+== 1.062 - 21 Jan, 2020  ==
+- Reduced AR damage from 33 to 30
+
+== 1.061 - 20 Jan, 2020  ==
+- Arranged UI & settings panel
+- Fixed the bug that you could shoot before the game started in battle royale
+- Fixed bug when editing -> buildings keybinds didn't work
+- Fixed controller edit delay
+- Added controller sensitivity
+
+== 1.06 - 12 Jan, 2020 ==
+- Added pickaxe
+- Added crouch support
+- Added competitive mode with skill based matchmaking
+- Added battle royale mode
+- Added controllers support
+
+== 1.053 - Dec 18, 2019  ==
+- Added death effect
+- Different buildings color
+- Added damage indicators when hit by trap
+- Optimized camera movement
+- Reimplemented connection code in order to support future features
+
+== 1.05 - Dec 9, 2019 ==
+- Added traps
+- Don't start game immediately, wait for other players
+- Improved stuck inside buildings bug
+- Add circle indication when the player has a shot
+
+== 1.04 - Dec 5, 2019 ==
+- Added asia server
+- Fix more building issues
+- Can now bind shift, alt and control
+- Improved results screen
+
+== 1.00 - Dec 2, 2019 ==
+- Initial Game Release
+
+
+== FAQ ==
+1. Why does the game run so slowly?
+	Please enable Hardware Acceleration: https://www.lifewire.com/hardware-acceleration-in-chrome-4125122
+2. The game recognizes my different mouse side buttons as the same button, what can I do?
+	Sadly It's a limitation that's not up to us, browsers currently aren't able to differentiate between them,
+	The only way to solve this currently: https://www.justbuild.xyz/mouse
+3. Why my controller doesn't work?
+	We currently don't support controllers
+4. I am stuck at 'Connecting' or have other connection issues, what can I do?
+	Please try to refresh the page in order to start the connection process again,
+	If it doesn't work and you are at school or work try to use a VPN.
+5. The game is very laggy
+	Please check you are connected to the region closest to your country.
+6. I am trying to join my friend's room and it fails
+	Please check you and your friend are connected to the same region.
+	
