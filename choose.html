@@ -1,119 +1,129 @@
 <head>
-  <title>og1v1.LOL | Choose Version</title>
-  <meta property="og:title" content="og1v1.lol" />
-  <meta property="og:type" content="website" />
-  <meta property="og:description" content="og1v1.lol is the way to play older versions of 1v1.lol anytime">
-  <meta property="og:image" content="https://cdn.glitch.global/810fbc25-b82b-4689-b655-999672ba94bc/LoadingScreen.png">
-  <meta name="description"
-    content="og1v1.lol the online building simulator & third person shooting game. build fight, box fight, zone wars and more game modes to enjoy!">
-  <meta name="keywords" content="just,build,simulator,practice,free,online,battle,royale">
-  <meta charset="utf-8" />
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-  <link rel='shortcut icon' href="/favicon.ico" />
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <title>og1v1.LOL | Choose Version</title>
+    <meta property="og:title" content="og1v1.lol" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="og1v1.lol is the way to play older versions of 1v1.lol anytime">
+    <meta property="og:image" content="https://cdn.glitch.global/810fbc25-b82b-4689-b655-999672ba94bc/LoadingScreen.png">
+    <meta name="description"
+      content="og1v1.lol the online building simulator & third person shooting game. build fight, box fight, zone wars and more game modes to enjoy!">
+    <meta name="keywords" content="just,build,simulator,practice,free,online,battle,royale">
+    <meta charset="utf-8" />
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <link rel='shortcut icon' href="/favicon.ico" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    
+  <style>
+  body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #131313;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
   
-<style>
-body {
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #131313;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-}
+  header {
+    background-color: #1e1e1e;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  h1 {
+    color: #fff;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    margin-bottom: 10px;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #00a1ff;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  .container {
+    max-width: 800px;
+    padding: 20px;
+    background-color: #1e1e1e;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  footer {
+    background-color: #1e1e1e;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  
+          .main-version-button {
+              display: inline-block;
+              padding: 15px 30px;
+              font-size: 18px;
+              font-weight: bold;
+              text-decoration: none;
+              background-color: #4CAF50; /* Green color */
+              color: white;
+              border: 2px solid #4CAF50;
+              border-radius: 8px;
+              transition: background-color 0.3s;
+          }
+  
+          .main-version-button:hover {
+              background-color: #45a049; /* Darker green color on hover */
+          }
+  </style>
+  </head>
+  
+  
+  <body>
+  <h1 id="404msg" style="display: none;">404 page not found, you were redirected to the choose page.</h2>
 
-header {
-  background-color: #1e1e1e;
-  color: #fff;
-  padding: 10px;
-  text-align: center;
-}
-
-h1 {
-  color: #fff;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  margin-bottom: 10px;
-}
-
-a {
-  text-decoration: none;
-  color: #00a1ff;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-.container {
-  max-width: 800px;
-  padding: 20px;
-  background-color: #1e1e1e;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-footer {
-  background-color: #1e1e1e;
-  color: #fff;
-  padding: 10px;
-  text-align: center;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
-
-
-        .main-version-button {
-            display: inline-block;
-            padding: 15px 30px;
-            font-size: 18px;
-            font-weight: bold;
-            text-decoration: none;
-            background-color: #4CAF50; /* Green color */
-            color: white;
-            border: 2px solid #4CAF50;
-            border-radius: 8px;
-            transition: background-color 0.3s;
+    <script>
+        if (window.location.search == "?r") {
+            document.getElementById("404msg").style.display = "inline"
         }
-
-        .main-version-button:hover {
-            background-color: #45a049; /* Darker green color on hover */
-        }
-</style>
-</head>
+    </script>
 
 
-<body>
-<h2>Main Version</h2>
-<p>v1.30 - 25 June, 2020</p>
-<a href="/" class="main-version-button">PLAY</a>
-
-<br>
-<br>
-<br>
-<p>Other Versions:</p>
-<p>Find the version you want <a href="/changelog.txt" target="_blank">CLICK HERE</a></p>
-<ul>
-  <li><a href="/justbuild.html"> Just Build</a></li>
-  <li><a href="/1_00.html"> v1.00</a> Dec 2, 2019</li>
-  <li><a href="/1_06.html"> v1.06</a> 12 Jan, 2020</li>
-  <li><a href="/1_20.html"> v1.20</a> 3 June, 2020</li>
-  <li><a href="/"> v1.30</a> 25 June, 2020</li>
-  <li><a href="/1_37.html"> v1.37</a> 17 August, 2020</li>
-  <li><a href="/3_800.html"> v3.800</a> ?</li>
-  <li><a href="/3_900.html"> v3.900</a> 11 October, 2021</li>
-</ul>
-
+  <h2>Main Version</h2>
+  <p>v1.30 - 25 June, 2020</p>
+  <a href="/" class="main-version-button">PLAY</a>
+  
+  <br>
+  <br>
+  <br>
+  <p>Other Versions:</p>
+  <p>Find the version you want <a href="/changelog.txt" target="_blank">CLICK HERE</a></p>
+  <ul>
+    <li><a href="/justbuild.html"> Just Build</a></li>
+    <li><a href="/1_00.html"> v1.00</a> Dec 2, 2019</li>
+    <li><a href="/1_06.html"> v1.06</a> 12 Jan, 2020</li>
+    <li><a href="/1_20.html"> v1.20</a> 3 June, 2020</li>
+    <li><a href="/"> v1.30</a> 25 June, 2020</li>
+    <li><a href="/1_37.html"> v1.37</a> 17 August, 2020</li>
+    <li><a href="/3_800.html"> v3.800</a> ?</li>
+    <li><a href="/3_900.html"> v3.900</a> 11 October, 2021</li>
   </ul>
-</body>
-</html>
+  
+    </ul>
+  </body>
+  </html>
+  
