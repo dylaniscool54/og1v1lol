@@ -245,6 +245,7 @@ canvas + * {
 
 	<script>
 		//init the interstitial 
+		var gameInstance = "lol"
 
 		var iAd;
 		cpmstarAPI(function (api) {
@@ -486,7 +487,7 @@ canvas + * {
 
 		console.log(configBlobURL);
 
-		var gameInstance = UnityLoader.instantiate("gameContainer", configBlobURL, { onProgress: UnityProgress });
+		gameInstance = UnityLoader.instantiate("gameContainer", configBlobURL, { onProgress: UnityProgress });
 
         // var gameInstance = UnityLoader.instantiate("gameContainer", "Build/WebGL.json", {onProgress: UnityProgress});
 		var lockedOccured = false;
