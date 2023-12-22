@@ -21,24 +21,7 @@
 	<script>
 		var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
-		if (/bot|crawler|spider|crawling/i.test(userAgent)) {
-			// do nothing
-		}
 
-		// Windows Phone
-		else if (/windows phone/i.test(userAgent)) {
-			window.location.replace("/mobile");
-		}
-
-		// Android
-		else if (/android/i.test(userAgent)) {
-			window.location.replace("https://web.archive.org/web/20200820135317/https://play.google.com/store/apps/details?id=lol.onevone");
-		}
-
-		// iOS
-		else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-			window.location.replace("https://web.archive.org/web/20200820135317/https://apps.apple.com/app/id1508620125");
-		}
 
 		var gameLoaded = false;
 	</script>
