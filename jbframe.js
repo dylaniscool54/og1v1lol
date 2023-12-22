@@ -3105,8 +3105,24 @@ var UnityModule = (function() {
         }
         function _OpenLink(url) {
             var url2 = Pointer_stringify(url);
-            console.log("Opening link: " + url2);
-            window.open(url2, "_blank")
+            let modedurl = url2
+            
+			if (modedurl == "https://www.justbuild.lol/") {
+				modedurl = "https://og1v1.lol/justbuild.html"
+			}
+            if (modedurl.includes("discord")) {
+                modedurl = "https://discord.gg/zUt4t5bw6g";
+            }
+            if (modedurl.includes("instagram")) {
+                alert("No insta but we got discord")
+                return
+            }
+            if (modedurl.includes("tiktok")) {
+                alert("No tiktok but we got discord")
+                return
+            }
+            console.log("Opening link: " + modedurl);
+            window.open(modedurl, "_blank")
         }
         function _SetDocument(collectionName, documentName, data, isMerge, alertedGameObject, callbackFunc, errorCallbackFunc) {
             collectionName = Pointer_stringify(collectionName);
