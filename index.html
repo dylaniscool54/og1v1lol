@@ -285,7 +285,13 @@ canvas + * {
 
 		// This function calls Unity to tell the ad finished
 		function unityAdFinishedCallback() {
-			
+			try {
+				if (gameInstance)
+					gameInstance.SendMessage('AdsManager', 'OnWebCallback');
+			}
+			catch (error) {
+				console.log(error);
+			}
 		}
 	</script>
 </head>
