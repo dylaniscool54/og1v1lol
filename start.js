@@ -1,4 +1,3 @@
-alert("DISCORD SERVER: https://discord.gg/zUt4t5bw6g")
 
 window.addEventListener("beforeunload", function(n) {
         n.preventDefault()
