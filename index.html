@@ -424,11 +424,7 @@ canvas + * {
     <!-- <script src="Build/UnityLoader.js"></script> -->
 
     <script>
-	    //FUCK ADS!!!!!!!
-	    		document.getElementById("adRectangleTop").style.display = "none";
-			document.getElementById("adRectangleBottom").style.display = "none";
-			document.getElementById("adLeaderboardBottom").style.display = "none";
-	    
+
 	const acceptbtn = document.getElementById("acceptbtn")
 	const startmsg = document.getElementById("startmsg")
 	const loader = document.getElementById("loader")
@@ -495,6 +491,16 @@ canvas + * {
 			}
 		}
 
+
+
+	}
+	    //FUCK ADS!!!!!!!
+	    		document.getElementById("adRectangleTop").style.display = "none";
+			document.getElementById("adRectangleBottom").style.display = "none";
+			document.getElementById("adLeaderboardBottom").style.display = "none";
+	    
+
+	    
 		document.onkeydown = function (e) {
 			if (e.altKey || e.ctrlKey || e.key == "F1" || e.key == "F2" || e.key == "F3" || e.key == "F4") {
 				e.preventDefault();
@@ -520,28 +526,16 @@ canvas + * {
 		var refreshNextTime = true;
 
 		function showAds() {
-			console.log("show ads");
+			console.log("SHOW LEADERBOARD");
 
-			document.getElementById("adRectangleTop").style.display = "none";
-			document.getElementById("adRectangleBottom").style.display = "none";
-			document.getElementById("adLeaderboardBottom").style.display = "none";
-			pauseCounter();
 		}
 
 		function hideAds() {
-			console.log("hide ads");
+			console.log("WE ARE INGAME");
 
-			document.getElementById("adRectangleTop").style.display = "none";
-			document.getElementById("adRectangleBottom").style.display = "none";
-			document.getElementById("adLeaderboardBottom").style.display = "none";
-
-			pauseCounter();
 		}
 
 		function refresh() {
-			document.getElementById("adRectangleTop").style.display = "none";
-			document.getElementById("adRectangleBottom").style.display = "none";
-			document.getElementById("adLeaderboardBottom").style.display = "none";
 			pauseCounter();
 		}
 
@@ -569,8 +563,7 @@ canvas + * {
 		function pauseCounter() {
 			adsVisible = false;
 		}
-
-	}
+	    
 	</script>
 
 	<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
