@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>JustBuild 2.3</title>
+    <link rel="shortcut icon" href="https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/1269a5a7-84a7-41fe-99f3-7f22a441b163/favicon.ico">
+    <style>
+.webgl-content * {border: 0; margin: 0; padding: 0}
+.webgl-content {position: absolute; top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%);}
+
+.webgl-content .logo, .progress {position: absolute; left: 50%; top: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%);}
+.webgl-content .logo {background: url('/web/20191121191314im_/https://play.chessmatec.com/justbuild1.7/TemplateData/progressLogo.Light.png') no-repeat center / contain; width: 154px; height: 130px;}
+.webgl-content .progress {height: 18px; width: 141px; margin-top: 90px;}
+.webgl-content .progress .empty {background: url('/web/20191121191314im_/https://play.chessmatec.com/justbuild1.7/TemplateData/progressEmpty.Light.png') no-repeat right / cover; float: right; width: 100%; height: 100%; display: inline-block;}
+.webgl-content .progress .full {background: url('/web/20191121191314im_/https://play.chessmatec.com/justbuild1.7/TemplateData/progressFull.Light.png') no-repeat left / cover; float: left; width: 0%; height: 100%; display: inline-block;}
+
+.webgl-content .logo.Dark {background-image: url('https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/1269a5a7-84a7-41fe-99f3-7f22a441b163/progressLogo.Dark.png');}
+.webgl-content .progress.Dark .empty {background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAI0AAAASCAYAAABmbl0zAAAACXBIWXMAAAsSAAALEgHS3X78AAAATUlEQVRo3u3aIQ4AIAwEQUr4/5cPiyMVBDOj0M2mCKgkGdAwjYCudZzLOLiITYPrCdEgGkSDaEA0iAbRIBpEA6JBNHx1vnL7V4NNwxsbCNMGI3YImu0AAAAASUVORK5CYII=');}
+.webgl-content .progress.Dark .full {background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAI0AAAASCAYAAABmbl0zAAAACXBIWXMAAAsSAAALEgHS3X78AAAAO0lEQVRo3u3SQREAAAjDMMC/56EB3omEXjtJCg5GAkyDaTANpsE0YBpMg2kwDaYB02AaTINpMA2Yhr8FO18EIBpZMeQAAAAASUVORK5CYII=');}
+
+.webgl-content .footer {margin-top: 5px; height: 38px; line-height: 38px; font-family: Helvetica, Verdana, Arial, sans-serif; font-size: 18px;} 
+.webgl-content .footer .webgl-logo, .title, .fullscreen {height: 100%; display: inline-block; background: transparent center no-repeat;} 
+.webgl-content .footer .webgl-logo {background-image: url('https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/1269a5a7-84a7-41fe-99f3-7f22a441b163/webgl-logo.png'); width: 204px; float: left;}
+.webgl-content .footer .title {margin-right: 10px; float: right;}
+.webgl-content .footer .fullscreen {background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAmCAIAAAAnX375AAAACXBIWXMAAAsSAAALEgHS3X78AAABC0lEQVRYw2OUW3eZgb6AiYHuYNTKUStHrRy1koGBgYUSzRbC3LMt5fhYmZEF5ddfoaEvT7z9GnHk/rXPP+gasFc//Lj69jtdrewxlA5VEKSflcj2rX7wnsgQJj/58LEyawtzQiP1zdeS80/5WJmPuqsR1MjMH55FnpU///3f/PijKBsLIzNj3NGHP//9//nv/6FXX17/+INfI+NgbxWgZUFaWaktwAG3b6W9Yo+hNIUWE7ZyhY0iHyszxD4tXo5QBcGV9oq0LfAgljEwMGjxQr1Lat4nJ5PALYPkv5LzT+mXfCi3j2QrtYU54amJTlZq8XKssFG0EOambVwSrP9GGyKjVo5aOWrl0LASABsZTYue2xSgAAAAAElFTkSuQmCC'); width: 38px; float: right;}
+
+    </style>
+    <script src="https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/1269a5a7-84a7-41fe-99f3-7f22a441b163/UnityProgress.js"></script>  
+    <script src="https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/1269a5a7-84a7-41fe-99f3-7f22a441b163/UnityLoader.js"></script>
+    <script>
+     const config = {
+        "companyName": "Lior Alterman",
+        "productName": "JustBuild",
+        "dataUrl": "https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/1269a5a7-84a7-41fe-99f3-7f22a441b163/WebGL2.data.unityweb?v=1703413165495",
+        "asmCodeUrl": "https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/1269a5a7-84a7-41fe-99f3-7f22a441b163/WebGL2.asm.code.unityweb?v=1703413126620",
+        "asmMemoryUrl": "https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/1269a5a7-84a7-41fe-99f3-7f22a441b163/WebGL2.asm.memory.unityweb?v=1703413130907",
+        "asmFrameworkUrl": "https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/1269a5a7-84a7-41fe-99f3-7f22a441b163/WebGL2.asm.framework.unityweb?v=1703413127744",
+        "TOTAL_MEMORY": 536870912,
+        "graphicsAPI": ["WebGL 2.0", "WebGL 1.0"],
+        "webglContextAttributes": {"preserveDrawingBuffer": false},
+        "splashScreenStyle": "Dark",
+        "backgroundColor": "#231F20",
+        "cacheControl": {"dataUrl": "must-revalidate"}
+        };
+
+		// Convert the config object to JSON string
+		const configJSON = JSON.stringify(config);
+
+		// Create a Blob from the JSON string
+		const configBlob = new Blob([configJSON], { type: 'application/json' });
+
+		// Create a URL for the Blob
+		const configBlobURL = URL.createObjectURL(configBlob);
+
+      var gameInstance = UnityLoader.instantiate("gameContainer", configBlobURL, {onProgress: UnityProgress});
+    </script>
+  </head>
+  <body>
+    <div class="webgl-content">
+      <div id="gameContainer" style="width: 960px; height: 600px"></div>
+      <div class="footer">
+        <div class="webgl-logo"></div>
+        <div class="fullscreen" onclick="gameInstance.SetFullscreen(1)"></div>
+        <div class="title">JustBuild</div>
+      </div>
+    </div>
+  </body>
+</html>
