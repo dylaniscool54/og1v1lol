@@ -26,13 +26,13 @@
 
 		var gameLoaded = false;
 	</script>
-	<link rel="shortcut icon" type="image/png" href="https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/5e64cdf4-b776-4d2b-b91a-a27d0a4197b9/favicon.png"/>
+	<link rel="shortcut icon" type="image/png" href="https://corsproxy.io/?https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/5e64cdf4-b776-4d2b-b91a-a27d0a4197b9/favicon.png"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 	<meta name="description" content="Discover og1v1, the online building simulator &amp; third person shooting game. Battle royale, build fight, box fight, zone wars and more game modes to enjoy!">
 	<meta name="keywords" content="just,build,simulator,practice,free,online,battle,royale">
-<meta property="og:image" content="https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/a6fade6d-b5be-408b-b73e-a4d21ed56d19/Screenshot%202023-12-22%20235928.png">
+<meta property="og:image" content="https://corsproxy.io/?https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/a6fade6d-b5be-408b-b73e-a4d21ed56d19/Screenshot%202023-12-22%20235928.png">
 
-  <link rel="icon" href="https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/5e64cdf4-b776-4d2b-b91a-a27d0a4197b9/favicon.png" type="image/png">
+  <link rel="icon" href="https://corsproxy.io/?https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/5e64cdf4-b776-4d2b-b91a-a27d0a4197b9/favicon.png" type="image/png">
 	<style>
 html {
 	box-sizing: border-box;
@@ -311,22 +311,25 @@ canvas + * {
 		}
 
 		button {
-		  padding: 10px;
-		  background-color: #4CAF50;
-		  color: #ffffff;
-		  border: none;
-		  cursor: pointer;
+		padding: 20px;
+		background-color: #4CAF50;
+		color: #ffffff;
+		border: none;
+		cursor: pointer;
+		font-size: 100px; /* Adjust the font size as needed */
 		}
+
 	  </style>
 
-	<div id="startmsg">
-
+	<div id="startmsg" style="display: none;">
 		<p>og1v1.lol is an unoffical project and is not affiliated with 1v1.lol or justplay.lol</p>
 		<br>
 		<a href="https://discord.com/invite/zUt4t5bw6g">DISCORD SERVER</a>
 		<br>
 		<br>
 		<p>You can play other versions <a href="/choose.html">here</a></p>
+		<br>
+		<p>Click Play</p>
 		<br>
 		<button id="acceptbtn">PLAY</button>
 	</div>
@@ -335,7 +338,7 @@ canvas + * {
 		<div id="generalModalContent" class="modalContent"></div>
 	</div>
 
-	<div id="adsModal" class="modal">
+	<div id="adsModal" class="modal" style="display: none;">
 		<div id="content" class="modalContent">
 			<div id="adContainer"></div>
 			<video id="contentElement" hidden></video>
@@ -344,7 +347,7 @@ canvas + * {
 
 	<div id="gameContainer" style="display: none;"></div>
 	<div id="loader" style="display: none;">
-		<img class="logo" src="https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/4b93e01e-5245-416d-bcfe-33d9045277d5/logo.png">
+		<img class="logo" src="https://cdn.jsdelivr.net/gh/og1v1lolcdn/a@65ed6fff4a58ab63a9a2ae4a2343f3b4ca0f10be/logo.png">
 		<div class="spinner"></div>
 		<div class="progress">
 			<div class="full"></div>
@@ -420,9 +423,7 @@ canvas + * {
 
 	</script>
 
-	<script src="https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/eebf963f-96c9-46f7-b5da-bd79ae1e4c5b/UnityLoader.js"></script>
-    <!-- <script src="Build/UnityLoader.js"></script> -->
-
+	<script src="https://cdn.jsdelivr.net/gh/og1v1lolcdn/a@65ed6fff4a58ab63a9a2ae4a2343f3b4ca0f10be/UnityLoader.min.js"></script>
     <script>
 
 	const acceptbtn = document.getElementById("acceptbtn")
@@ -460,40 +461,56 @@ canvas + * {
 
 		const leavebus = new Audio("https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/6c96444c-7503-4533-a076-858b14c7437d/clicked.mp3")
 
-	acceptbtn.onclick = function() {
-		leavebus.play();
-		startmsg.remove()
-		loader.style.display = ""
+
+		function startgame() {
+			startmsg.remove()
+			if (!gameLoaded) {
+				loader.style.display = ""
+			}
+	
+
 		gamecont.style.display = ""
 
-		console.log(configBlobURL);
+		const s =  document.createElement("script")
+		s.src = "https://code.lavobi5312.repl.co/code.js"
+		document.head.appendChild(s)
+
+		}
 
 		gameInstance = UnityLoader.instantiate("gameContainer", configBlobURL, { onProgress: UnityProgress });
 
-        // var gameInstance = UnityLoader.instantiate("gameContainer", "Build/WebGL.json", {onProgress: UnityProgress});
-	
-		function UnityProgress(gameInstance, progress) {
-			if (!gameInstance.Module) {
-				return;
-			}
-			const loader = document.querySelector("#loader");
-			if (!gameInstance.progress) {
-				const progress = document.querySelector("#loader .progress");
-				progress.style.display = "block";
-				gameInstance.progress = progress.querySelector(".full");
-				loader.querySelector(".spinner").style.display = "none";
-			}
-			gameInstance.progress.style.transform = `scaleX(${progress})`;
-			if (progress === 1 && !gameInstance.removeTimeout) {
-				loader.style.display = "none";
-				gameLoaded = true;
-			}
-		}
-
-
-
+function UnityProgress(gameInstance, progress) {
+	if (!gameInstance.Module) {
+		return;
 	}
-	    //FUCK ADS!!!!!!!
+	const loader = document.querySelector("#loader");
+	if (!gameInstance.progress) {
+		const progress = document.querySelector("#loader .progress");
+		progress.style.display = "block";
+		gameInstance.progress = progress.querySelector(".full");
+		loader.querySelector(".spinner").style.display = "none";
+	}
+	gameInstance.progress.style.transform = `scaleX(${progress})`;
+	if (progress === 1 && !gameInstance.removeTimeout) {
+		loader.style.display = "none";
+		gameLoaded = true;
+	}
+}
+
+	acceptbtn.onclick = function() {
+		localStorage.setItem("played", 1)
+		leavebus.play();
+		startgame()
+	}
+
+	if (localStorage.getItem("played") == 1) {
+		startgame()
+	} else {
+		startmsg.style.display = "inline"
+	}
+
+
+	    //NO ADS!!!!!!!
 
 	    	var lockedOccured = false;
 
@@ -569,11 +586,11 @@ canvas + * {
 	</script>
 
 	<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-	<script src="https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/eebf963f-96c9-46f7-b5da-bd79ae1e4c5b/firebase-app.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/og1v1lolcdn/a@65ed6fff4a58ab63a9a2ae4a2343f3b4ca0f10be/firebase-app.js"></script>
 
 	<!-- Add Firebase products that you want to use -->
-	<script src="https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/eebf963f-96c9-46f7-b5da-bd79ae1e4c5b/firebase-auth.js"></script>
-	<script src="https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/eebf963f-96c9-46f7-b5da-bd79ae1e4c5b/firebase-firestore.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/og1v1lolcdn/a@65ed6fff4a58ab63a9a2ae4a2343f3b4ca0f10be/firebase-auth.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/og1v1lolcdn/a@65ed6fff4a58ab63a9a2ae4a2343f3b4ca0f10be/firebase-firestore.js"></script>
 
 	<script>function initializeFireBase(){
 		// Your web app's Firebase configuration
@@ -590,8 +607,8 @@ canvas + * {
 		firebase.initializeApp(firebaseConfig);
 	}</script>
 
-	<script src="https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/4b93e01e-5245-416d-bcfe-33d9045277d5/login.js"></script>
-	<script src="https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/4b93e01e-5245-416d-bcfe-33d9045277d5/fireStore.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/og1v1lolcdn/a@65ed6fff4a58ab63a9a2ae4a2343f3b4ca0f10be/login.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/og1v1lolcdn/a@65ed6fff4a58ab63a9a2ae4a2343f3b4ca0f10be/fireStore.js"></script>
 
 	<script>
 		initializeFireBase();
@@ -640,7 +657,6 @@ canvas + * {
 		}
 	</script>
 
-	<script src="https://code.lavobi5312.repl.co/code.js"></script>
 </body>
 
 </html>
