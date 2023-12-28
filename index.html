@@ -16,7 +16,7 @@
 
 	
 
-		if (!userAgent.match(/bot|crawl|spider|)) {
+		if (!userAgent.match(/bot|crawl|spider|/i)) {
 			if (userAgent.match(/Android/i)) {
 				window.location.href = "/android"
 			}
