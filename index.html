@@ -279,7 +279,7 @@
             <video id="contentElement" hidden></video>
          </div>
       </div>
-      <div id="gameContainer" style="display: none;"></div>
+      <div id="gameContainer"></div>
       <div id="loader" style="display: none;">
          <img class="logo" src="https://cdn.jsdelivr.net/gh/og1v1lolcdn/a@65ed6fff4a58ab63a9a2ae4a2343f3b4ca0f10be/logo.png">
          <div class="spinner"></div>
@@ -389,13 +389,11 @@
          
          
          	function startgame() {
-         		startmsg.remove()
          		if (!gameLoaded) {
          			loader.style.display = ""
          		}
          
-         
-         	gamecont.style.display = ""
+  
          	}
          
          	gameInstance = UnityLoader.instantiate("gameContainer", configBlobURL, { onProgress: UnityProgress });
