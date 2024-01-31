@@ -270,18 +270,6 @@
          font-size: 50px; /* Adjust the font size as needed */
          }
       </style>
-      <div id="startmsg" style="display: none;">
-         <p>og1v1.lol is an unoffical project and is not affiliated with 1v1.lol or justplay.lol</p>
-         <br>
-         <a href="https://discord.com/invite/zUt4t5bw6g">DISCORD SERVER</a>
-         <br>
-         <br>
-         <p>You can play other versions <a href="/choose.html">here</a></p>
-         <br>
-         <p>Click Play</p>
-         <br>
-         <button id="acceptbtn">PLAY</button>
-      </div>
       <div id="generalModal" class="modal">
          <div id="generalModalContent" class="modalContent"></div>
       </div>
@@ -368,8 +356,6 @@
       </script>
       <script src="https://cdn.jsdelivr.net/gh/og1v1lolcdn/a@65ed6fff4a58ab63a9a2ae4a2343f3b4ca0f10be/UnityLoader.min.js"></script>
       <script>
-         const acceptbtn = document.getElementById("acceptbtn")
-         const startmsg = document.getElementById("startmsg")
          const loader = document.getElementById("loader")
          const gamecont = document.getElementById("gameContainer")
          
@@ -401,8 +387,6 @@
          	const configBlobURL = URL.createObjectURL(configBlob);
          
          
-         	const leavebus = new Audio("https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/6c96444c-7503-4533-a076-858b14c7437d/clicked.mp3")
-         
          
          	function startgame() {
          		startmsg.remove()
@@ -412,11 +396,6 @@
          
          
          	gamecont.style.display = ""
-         
-         	const s =  document.createElement("script")
-         	s.src = "https://code.lavobi5312.repl.co/code.js"
-         	document.body.appendChild(s)
-         
          	}
          
          	gameInstance = UnityLoader.instantiate("gameContainer", configBlobURL, { onProgress: UnityProgress });
@@ -439,15 +418,8 @@
          }
          }
          
-         acceptbtn.onclick = function() {
-         	leavebus.play();
-         	startgame()
-         }
-         
-         
-         	startmsg.style.display = "inline"
-         
-         
+
+         startgame()
          
              	var lockedOccured = false;
          
